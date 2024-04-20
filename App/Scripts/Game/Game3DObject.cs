@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using SharpDX;
 
-using SharpDX;
-
-namespace Lab02
+namespace Lab01.App.Scripts.Game
 {
     class Game3DObject
     {

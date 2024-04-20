@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using SharpDX;
 using SharpDX.Direct3D11;
 
-namespace Lab02
+namespace Lab01.App.Scripts.Textures
 {
     class Texture : IDisposable
     {

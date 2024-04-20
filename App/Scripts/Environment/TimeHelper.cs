@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Diagnostics;
 
-namespace Lab02
+namespace Lab01.App.Scripts.Environment
 {
     class TimeHelper
     {

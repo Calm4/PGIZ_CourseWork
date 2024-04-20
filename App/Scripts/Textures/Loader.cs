@@ -1,14 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;   
+using System.Collections.Generic;
+using Lab01.App.Scripts.DirectX;
+using ObjLoader.Loader.Loaders;
 using SharpDX;
-using SharpDX.DXGI;
-using SharpDX.WIC;
 using SharpDX.Direct3D;
 using SharpDX.Direct3D11;
-using Lab01;
-using ObjLoader.Loader.Loaders;
+using SharpDX.DXGI;
+using SharpDX.WIC;
 
-namespace Lab02
+namespace Lab01.App.Scripts.Textures
 {
     class Loader : IDisposable
     {

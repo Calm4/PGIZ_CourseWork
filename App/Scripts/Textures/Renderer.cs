@@ -1,20 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using System.Runtime.InteropServices;
+using Lab01.App.Scripts.DirectX;
+using Lab01.App.Scripts.Environment;
 using SharpDX;
-using SharpDX.DXGI;
 using SharpDX.D3DCompiler;
-using SharpDX.Direct3D11;
 using SharpDX.Direct3D;
+using SharpDX.Direct3D11;
+using SharpDX.DXGI;
 using Buffer11 = SharpDX.Direct3D11.Buffer;
 using Device11 = SharpDX.Direct3D11.Device;
-using Lab01;
-using static Lab02.Renderer;
 
-namespace Lab02
+namespace Lab01.App.Scripts.Textures
 {
     class Renderer : IDisposable
     {
@@ -76,10 +72,10 @@ namespace Lab02
             _device = _directX3DGraphics.Device;
             _deviceContext = _directX3DGraphics.DeviceContext;
 
-            CompilationResult vertexShaderByteCode = ShaderBytecode.CompileFromFile("vertex.hlsl", "vertexShader", "vs_5_0");
+            CompilationResult vertexShaderByteCode = ShaderBytecode.CompileFromFile("App/Shaders/vertex.hlsl", "vertexShader", "vs_5_0");
             _vertexShader = new VertexShader(_device, vertexShaderByteCode);
 
-            CompilationResult pixelShaderByteCode = ShaderBytecode.CompileFromFile("pixel.hlsl", "pixelShader", "ps_5_0");
+            CompilationResult pixelShaderByteCode = ShaderBytecode.CompileFromFile("App/Shaders/pixel.hlsl", "pixelShader", "ps_5_0");
             _pixelShader = new PixelShader(_device, pixelShaderByteCode);
 
             InputElement[] inputElements = new[]

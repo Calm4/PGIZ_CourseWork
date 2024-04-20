@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing.Imaging;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
 using SharpDX;
 using SharpDX.Direct2D1;
 using SharpDX.Direct3D;
@@ -12,7 +9,7 @@ using SharpDX.DXGI;
 using SharpDX.Windows;
 using Device11 = SharpDX.Direct3D11.Device;
 
-namespace Lab02
+namespace Lab01.App.Scripts.DirectX
 {
     class DirectX3DGraphics : IDisposable
     {

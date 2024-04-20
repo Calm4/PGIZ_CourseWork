@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿using Lab01.App.Scripts.Game;
 using SharpDX;
 
-namespace Lab02
+namespace Lab01.App.Scripts.Environment
 {
     class Camera : Game3DObject
     {

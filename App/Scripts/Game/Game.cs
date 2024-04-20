@@ -1,24 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using SharpDX.DirectInput;
-using SharpDX;
-using SharpDX.Windows;
-using Lab01;
-using System.Drawing;
-using SharpDX.Direct2D1;
-using SharpDX.DXGI;
-using System.Threading;
-using SharpDX.Mathematics.Interop;
-using SharpDX.DirectWrite;
-using SharpDX.IO;
-using SharpDX.WIC;
-using System.IO.Packaging;
-using ObjLoader.Loader.Loaders;
 using System.IO;
+using Lab01.App.Scripts.DirectX;
+using Lab01.App.Scripts.Environment;
+using Lab01.App.Scripts.Textures;
+using ObjLoader.Loader.Loaders;
+using SharpDX;
+using SharpDX.Direct2D1;
+using SharpDX.DirectInput;
+using SharpDX.DirectWrite;
+using SharpDX.DXGI;
+using SharpDX.Windows;
 
-namespace Lab02
+namespace Lab01.App.Scripts.Game
 {
     class Game : IDisposable
     {

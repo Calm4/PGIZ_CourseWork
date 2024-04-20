@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 using SharpDX.Direct3D;
 using Device11 = SharpDX.Direct3D11.Device;
 
-namespace Lab02
+namespace Lab01.App.Scripts
 {
     internal static class Program
     {
@@ -21,7 +19,7 @@ namespace Lab02
                 return;
             }
 
-            Game game = new Game();
+            Game.Game game = new Game.Game();
             game.Run();
             game.Dispose();
         }

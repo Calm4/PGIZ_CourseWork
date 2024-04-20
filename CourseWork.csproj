@@ -212,21 +212,20 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BoundingCapsule.cs" />
-    <Compile Include="Camera.cs" />
-    <Compile Include="DirectX3DGraphics.cs" />
-    <Compile Include="DXInput.cs" />
-    <Compile Include="Game.cs" />
-    <Compile Include="Game3DObject.cs" />
-    <Compile Include="Light.cs" />
-    <Compile Include="Loader.cs" />
-    <Compile Include="Material.cs" />
-    <Compile Include="MeshObject.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="App\Scripts\DirectX\DirectX3DGraphics.cs" />
+    <Compile Include="App\Scripts\DirectX\DXInput.cs" />
+    <Compile Include="App\Scripts\Environment\Camera.cs" />
+    <Compile Include="App\Scripts\Environment\Light.cs" />
+    <Compile Include="App\Scripts\Environment\TimeHelper.cs" />
+    <Compile Include="App\Scripts\Game\Game.cs" />
+    <Compile Include="App\Scripts\Game\Game3DObject.cs" />
+    <Compile Include="App\Scripts\Program.cs" />
+    <Compile Include="App\Scripts\Textures\Loader.cs" />
+    <Compile Include="App\Scripts\Textures\Material.cs" />
+    <Compile Include="App\Scripts\Textures\MeshObject.cs" />
+    <Compile Include="App\Scripts\Textures\Renderer.cs" />
+    <Compile Include="App\Scripts\Textures\Texture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Renderer.cs" />
-    <Compile Include="Texture.cs" />
-    <Compile Include="TimeHelper.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -236,33 +235,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="6grannik.mtl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="6grannik.obj">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="app.config" />
     <None Include="app.manifest" />
-    <None Include="cylinder.mtl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="cylinder.obj">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="icosahedron2.mtl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="icosahedron2.obj">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="packages.config" />
-    <None Include="prizma6ix.mtl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="prizma6ix.obj">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="App\Configs\app.config" />
+    <None Include="App\Configs\packages.config" />
+    <None Include="App\GameObjects\Materials\6grannik.mtl" />
+    <None Include="App\GameObjects\Materials\cylinder.mtl" />
+    <None Include="App\GameObjects\Materials\icosahedron2.mtl" />
+    <None Include="App\GameObjects\Objects\6grannik.obj" />
+    <None Include="App\GameObjects\Objects\cylinder.obj" />
+    <None Include="App\GameObjects\Objects\icosahedron2.obj" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -274,22 +255,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="pixel.hlsl">
+    <Content Include="App\GameObjects\Images\6grannik.png" />
+    <Content Include="App\GameObjects\Images\CocaCola.png" />
+    <Content Include="App\GameObjects\Images\plotTexture.png" />
+    <Content Include="App\GameObjects\Images\texture.bmp" />
+    <Content Include="App\Shaders\pixel.hlsl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="plotTexture.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="texture.bmp">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="vertex.hlsl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="6grannik.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="CocaCola.png">
+    <Content Include="App\Shaders\vertex.hlsl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

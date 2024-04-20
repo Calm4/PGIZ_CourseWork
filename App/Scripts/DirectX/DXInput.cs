@@ -1,11 +1,8 @@
-﻿using SharpDX;
+﻿using System;
+using SharpDX;
 using SharpDX.DirectInput;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace Lab02
+namespace Lab01.App.Scripts.DirectX
 {
     internal class DXInput : IDisposable
     {

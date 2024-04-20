@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Lab01.Properties {
+namespace CourseWork.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
