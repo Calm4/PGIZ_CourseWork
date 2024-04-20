@@ -1,0 +1,143 @@
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\pixel.hlsl
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\vertex.hlsl
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\Lab01.exe
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\Lab01.pdb
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.D3DCompiler.dll
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.Desktop.dll
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.Diagnostics.dll
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.Direct3D11.dll
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.dll
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.DXGI.dll
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.Mathematics.dll
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.pdb
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.D3DCompiler.pdb
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.D3DCompiler.xml
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.Desktop.pdb
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.Desktop.xml
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.Diagnostics.xml
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.Direct3D11.pdb
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.Direct3D11.xml
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.DXGI.pdb
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.DXGI.xml
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.Mathematics.pdb
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.Mathematics.xml
+C:\универ\ПГиЗ\Lab02\Lab02\obj\Debug\Lab02.csproj.AssemblyReference.cache
+C:\универ\ПГиЗ\Lab02\Lab02\obj\Debug\Lab01.Properties.Resources.resources
+C:\универ\ПГиЗ\Lab02\Lab02\obj\Debug\Lab02.csproj.GenerateResource.cache
+C:\универ\ПГиЗ\Lab02\Lab02\obj\Debug\Lab02.csproj.CoreCompileInputs.cache
+C:\универ\ПГиЗ\Lab02\Lab02\obj\Debug\Lab01.exe
+C:\универ\ПГиЗ\Lab02\Lab02\obj\Debug\Lab01.pdb
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.Direct2D1.dll
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.Direct2D1.pdb
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.Direct2D1.xml
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\textureTetrahedron.png
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.DirectInput.dll
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.DirectInput.pdb
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.DirectInput.xml
+C:\универ\5 семестр\ПГиЗ\Lab02\Lab02\bin\Debug\pixel.hlsl
+C:\универ\5 семестр\ПГиЗ\Lab02\Lab02\bin\Debug\textureTetrahedron.png
+C:\универ\5 семестр\ПГиЗ\Lab02\Lab02\bin\Debug\vertex.hlsl
+C:\универ\5 семестр\ПГиЗ\Lab02\Lab02\bin\Debug\Lab01.exe.config
+C:\универ\5 семестр\ПГиЗ\Lab02\Lab02\bin\Debug\Lab01.exe
+C:\универ\5 семестр\ПГиЗ\Lab02\Lab02\bin\Debug\Lab01.pdb
+C:\универ\5 семестр\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.D3DCompiler.dll
+C:\универ\5 семестр\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.Desktop.dll
+C:\универ\5 семестр\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.Diagnostics.dll
+C:\универ\5 семестр\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.Direct2D1.dll
+C:\универ\5 семестр\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.Direct3D11.dll
+C:\универ\5 семестр\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.DirectInput.dll
+C:\универ\5 семестр\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.dll
+C:\универ\5 семестр\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.DXGI.dll
+C:\универ\5 семестр\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.Mathematics.dll
+C:\универ\5 семестр\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.pdb
+C:\универ\5 семестр\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.D3DCompiler.pdb
+C:\универ\5 семестр\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.D3DCompiler.xml
+C:\универ\5 семестр\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.Desktop.pdb
+C:\универ\5 семестр\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.Desktop.xml
+C:\универ\5 семестр\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.Diagnostics.xml
+C:\универ\5 семестр\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.Direct2D1.pdb
+C:\универ\5 семестр\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.Direct2D1.xml
+C:\универ\5 семестр\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.Direct3D11.pdb
+C:\универ\5 семестр\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.Direct3D11.xml
+C:\универ\5 семестр\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.DirectInput.pdb
+C:\универ\5 семестр\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.DirectInput.xml
+C:\универ\5 семестр\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.DXGI.pdb
+C:\универ\5 семестр\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.DXGI.xml
+C:\универ\5 семестр\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.Mathematics.pdb
+C:\универ\5 семестр\ПГиЗ\Lab02\Lab02\bin\Debug\SharpDX.Mathematics.xml
+C:\универ\5 семестр\ПГиЗ\Lab02\Lab02\obj\Debug\Lab02.csproj.AssemblyReference.cache
+C:\универ\5 семестр\ПГиЗ\Lab02\Lab02\obj\Debug\Lab02.csproj.SuggestedBindingRedirects.cache
+C:\универ\5 семестр\ПГиЗ\Lab02\Lab02\obj\Debug\Lab01.Properties.Resources.resources
+C:\универ\5 семестр\ПГиЗ\Lab02\Lab02\obj\Debug\Lab02.csproj.GenerateResource.cache
+C:\универ\5 семестр\ПГиЗ\Lab02\Lab02\obj\Debug\Lab02.csproj.CoreCompileInputs.cache
+C:\универ\5 семестр\ПГиЗ\Lab02\Lab02\obj\Debug\Lab02.csproj.CopyComplete
+C:\универ\5 семестр\ПГиЗ\Lab02\Lab02\obj\Debug\Lab01.exe
+C:\универ\5 семестр\ПГиЗ\Lab02\Lab02\obj\Debug\Lab01.pdb
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\Lab01.exe.config
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\plotTexture.png
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\tetrahedronchik.png
+C:\универ\ПГиЗ\Lab02\Lab02\obj\Debug\Lab02.csproj.Up2Date
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\texture.bmp
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\CjClutter.ObjLoader.Loader.dll
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\tetrahedron.mtl
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\tetrahedron.obj
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\icosahedron.mtl
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\icosahedron.obj
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\icosahedron2.mtl
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\icosahedron2.obj
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\icosahedron4ik.mtl
+C:\универ\ПГиЗ\Lab02\Lab02\bin\Debug\icosahedron4ik.obj
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\pixel.hlsl
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\plotTexture.png
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\texture.bmp
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\vertex.hlsl
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\Lab01.exe.config
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\Lab01.exe
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\Lab01.pdb
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\CjClutter.ObjLoader.Loader.dll
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\SharpDX.D3DCompiler.dll
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\SharpDX.Desktop.dll
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\SharpDX.Diagnostics.dll
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\SharpDX.Direct2D1.dll
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\SharpDX.Direct3D11.dll
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\SharpDX.DirectInput.dll
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\SharpDX.dll
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\SharpDX.DXGI.dll
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\SharpDX.Mathematics.dll
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\SharpDX.pdb
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\SharpDX.D3DCompiler.pdb
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\SharpDX.D3DCompiler.xml
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\SharpDX.Desktop.pdb
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\SharpDX.Desktop.xml
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\SharpDX.Diagnostics.xml
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\SharpDX.Direct2D1.pdb
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\SharpDX.Direct2D1.xml
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\SharpDX.Direct3D11.pdb
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\SharpDX.Direct3D11.xml
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\SharpDX.DirectInput.pdb
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\SharpDX.DirectInput.xml
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\SharpDX.DXGI.pdb
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\SharpDX.DXGI.xml
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\SharpDX.Mathematics.pdb
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\SharpDX.Mathematics.xml
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Projects\PGIZ\Lab02\Lab02\obj\Debug\Lab02.csproj.AssemblyReference.cache
+C:\Projects\PGIZ\Lab02\Lab02\obj\Debug\Lab01.Properties.Resources.resources
+C:\Projects\PGIZ\Lab02\Lab02\obj\Debug\Lab02.csproj.GenerateResource.cache
+C:\Projects\PGIZ\Lab02\Lab02\obj\Debug\Lab02.csproj.CoreCompileInputs.cache
+C:\Projects\PGIZ\Lab02\Lab02\obj\Debug\Lab02.csproj.CopyComplete
+C:\Projects\PGIZ\Lab02\Lab02\obj\Debug\Lab01.exe
+C:\Projects\PGIZ\Lab02\Lab02\obj\Debug\Lab01.pdb
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\prizma6ix.mtl
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\prizma6ix.obj
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\icosahedron2.mtl
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\icosahedron2.obj
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\6grannik.png
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\6grannik.mtl
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\6grannik.obj
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\CocaCola.png
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\cylinder.mtl
+C:\Projects\PGIZ\Lab02\Lab02\bin\Debug\cylinder.obj
