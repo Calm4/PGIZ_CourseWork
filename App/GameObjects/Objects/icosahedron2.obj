@@ -1,6 +1,6 @@
 # Blender 4.0.2
 # www.blender.org
-mtllib icosahedron2.mtl
+mtllib C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\App\GameObjects\Materials\icosahedron2.mtl
 o Icosphere
 v 0.000000 -1.000000 0.000000
 v 0.723600 -0.447215 0.525720

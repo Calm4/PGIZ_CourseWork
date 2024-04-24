@@ -1,6 +1,6 @@
 # Blender 4.1.0
 # www.blender.org
-mtllib cylinder.mtl
+mtllib C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\App\GameObjects\Materials\cylinder.mtl
 o Cylinder
 v 0.000000 -1.000000 -1.000000
 v 0.000000 1.000000 -1.000000

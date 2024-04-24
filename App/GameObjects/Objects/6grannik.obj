@@ -1,6 +1,6 @@
 # Blender 4.1.0
 # www.blender.org
-mtllib 6grannik.mtl
+mtllib C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\App\GameObjects\Materials\6grannik.mtl
 o Cylinder
 v 0.000000 -1.000000 -1.000000
 v 0.000000 1.000000 -1.000000

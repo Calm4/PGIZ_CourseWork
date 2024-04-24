@@ -72,10 +72,10 @@ namespace Lab01.App.Scripts.Textures
             _device = _directX3DGraphics.Device;
             _deviceContext = _directX3DGraphics.DeviceContext;
 
-            CompilationResult vertexShaderByteCode = ShaderBytecode.CompileFromFile("App/Shaders/vertex.hlsl", "vertexShader", "vs_5_0");
+            CompilationResult vertexShaderByteCode = ShaderBytecode.CompileFromFile("C:\\Projects\\PGIZ\\CourseWork\\PGIZ_CourseWork\\App\\Shaders\\vertex.hlsl", "vertexShader", "vs_5_0");
             _vertexShader = new VertexShader(_device, vertexShaderByteCode);
 
-            CompilationResult pixelShaderByteCode = ShaderBytecode.CompileFromFile("App/Shaders/pixel.hlsl", "pixelShader", "ps_5_0");
+            CompilationResult pixelShaderByteCode = ShaderBytecode.CompileFromFile("C:\\Projects\\PGIZ\\CourseWork\\PGIZ_CourseWork\\App\\Shaders\\pixel.hlsl", "pixelShader", "ps_5_0");
             _pixelShader = new PixelShader(_device, pixelShaderByteCode);
 
             InputElement[] inputElements = new[]
