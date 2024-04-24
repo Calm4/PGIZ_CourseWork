@@ -31,6 +31,15 @@ namespace Lab01.App.Scripts.Environment
             return viewTo;
         }
 
+        public Vector3 GetViewForward()
+        {
+            Matrix rotation = Matrix.RotationYawPitchRoll(_yaw, _pitch, _roll);
+            Vector3 viewTo = (Vector3)Vector4.Transform(Vector4.UnitZ, rotation);
+
+            return viewTo;
+        }
+
+
         public Vector3 GetViewTo()
         {
             

@@ -390,14 +390,15 @@ namespace Lab01.App.Scripts.Game
 
 
             Vector3 cameraMovement = Vector3.Zero;
+
             if (_dxInput.IsKeyPressed(Key.W))
             {
-                cameraMovement += _camera.GetViewTo() * 0.1f;
+                cameraMovement += _camera.GetViewForward() * 0.1f;
             }
 
             if (_dxInput.IsKeyPressed(Key.S))
             {
-                cameraMovement -= _camera.GetViewTo() * 0.1f;
+                cameraMovement -= _camera.GetViewForward() * 0.1f;
             }
 
             if (_dxInput.IsKeyPressed(Key.A))
@@ -410,15 +411,19 @@ namespace Lab01.App.Scripts.Game
                 cameraMovement += _camera.GetViewRight() * 0.1f;
             }
 
-         /*   if (_dxInput.IsKeyPressed(Key.Space))
-            {
-                cameraMovement.Y += .1f;
-            }
+            _camera.MoveBy(cameraMovement.X, cameraMovement.Y, cameraMovement.Z);
+            
 
-            if (_dxInput.IsKeyPressed(Key.LeftControl))
-            {
-                cameraMovement.Y -= .1f;
-            }*/
+
+            /*   if (_dxInput.IsKeyPressed(Key.Space))
+               {
+                   cameraMovement.Y += .1f;
+               }
+
+               if (_dxInput.IsKeyPressed(Key.LeftControl))
+               {
+                   cameraMovement.Y -= .1f;
+               }*/
 
             _camera.MoveBy(cameraMovement.X, cameraMovement.Y, cameraMovement.Z);
 
