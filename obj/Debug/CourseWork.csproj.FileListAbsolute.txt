@@ -36,8 +36,6 @@ C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\obj\Debug\CourseWork.csproj.CoreComp
 C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\obj\Debug\CourseWork.csproj.CopyComplete
 C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\obj\Debug\Lab01.exe
 C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\obj\Debug\Lab01.pdb
-C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\App\Shaders\pixel.hlsl
-C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\App\Shaders\vertex.hlsl
 E:\Projects\PGIZ\PGIZ_CourseWork\bin\Debug\Lab01.exe.config
 E:\Projects\PGIZ\PGIZ_CourseWork\bin\Debug\Lab01.exe
 E:\Projects\PGIZ\PGIZ_CourseWork\bin\Debug\Lab01.pdb
@@ -82,3 +80,9 @@ E:\Projects\PGIZ\PGIZ_CourseWork\bin\Debug\App\GameObjects\Images\6grannik.png
 E:\Projects\PGIZ\PGIZ_CourseWork\bin\Debug\App\GameObjects\Images\CocaCola.png
 E:\Projects\PGIZ\PGIZ_CourseWork\bin\Debug\App\GameObjects\Images\plotTexture.png
 E:\Projects\PGIZ\PGIZ_CourseWork\bin\Debug\App\GameObjects\Images\texture.bmp
+C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\App\GameObjects\Images\6grannik.png
+C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\App\GameObjects\Images\CocaCola.png
+C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\App\GameObjects\Images\plotTexture.png
+C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\App\GameObjects\Images\texture.bmp
+C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\pixel.hlsl
+C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\vertex.hlsl

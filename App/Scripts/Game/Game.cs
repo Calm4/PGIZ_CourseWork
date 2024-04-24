@@ -410,7 +410,7 @@ namespace Lab01.App.Scripts.Game
                 cameraMovement += _camera.GetViewRight() * 0.1f;
             }
 
-            if (_dxInput.IsKeyPressed(Key.Space))
+         /*   if (_dxInput.IsKeyPressed(Key.Space))
             {
                 cameraMovement.Y += .1f;
             }
@@ -418,7 +418,7 @@ namespace Lab01.App.Scripts.Game
             if (_dxInput.IsKeyPressed(Key.LeftControl))
             {
                 cameraMovement.Y -= .1f;
-            }
+            }*/
 
             _camera.MoveBy(cameraMovement.X, cameraMovement.Y, cameraMovement.Z);
 
@@ -426,29 +426,6 @@ namespace Lab01.App.Scripts.Game
 
 
             Vector3 tetrahedronMovement = Vector3.Zero;
-
-            if (_dxInput.IsKeyPressed(Key.Up))
-            {
-                tetrahedronMovement.Z += .1f;
-            }
-
-            if (_dxInput.IsKeyPressed(Key.Down))
-            {
-                tetrahedronMovement.Z -= .1f;
-            }
-
-            if (_dxInput.IsKeyPressed(Key.Left))
-            {
-                tetrahedronMovement.X -= .1f;
-            }
-
-            if (_dxInput.IsKeyPressed(Key.Right))
-            {
-                tetrahedronMovement.X += .1f;
-            }
-
-            _sixGrannik.MoveBy(tetrahedronMovement.X, tetrahedronMovement.Y, tetrahedronMovement.Z);
-
 
             if (_dxInput.IsKeyPressed(Key.U))
             {
@@ -497,11 +474,6 @@ namespace Lab01.App.Scripts.Game
             _renderer.RenderMeshObject(_cylinder);
 
             _renderer.EndRender();
-
-            if (_dxInput.IsKeyReleased(Key.M))
-            {
-                _isMap = !_isMap;
-            }
 
             if (_dxInput.IsKeyReleased(Key.O))
             {
