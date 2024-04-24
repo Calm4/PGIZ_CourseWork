@@ -38,14 +38,6 @@ namespace Lab01.App.Scripts.Textures
             _vertexBufferObject = Buffer11.Create(_directX3DGraphics.Device, BindFlags.VertexBuffer, _vertices, Utilities.SizeOf<Renderer.VertexDataStruct>() * _verticesCount);
             _vertexBufferBinding = new VertexBufferBinding(_vertexBufferObject, Utilities.SizeOf<Renderer.VertexDataStruct>(), 0);
             _indicesBufferObject = Buffer11.Create(_directX3DGraphics.Device, BindFlags.IndexBuffer, _indices, Utilities.SizeOf<uint>() * _indicesCount);
-
-            /*_materialBufferObject = new Buffer11(_directX3DGraphics.Device,
-                Utilities.SizeOf<MaterialProperties>(),
-                ResourceUsage.Default, // was dynamic
-                BindFlags.ConstantBuffer,
-                CpuAccessFlags.Write, // 0 ?
-                ResourceOptionFlags.None,
-                0);*/
         }
         public Vector3 GetForwardVector()
         {

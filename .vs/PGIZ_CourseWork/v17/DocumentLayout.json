@@ -1,0 +1,172 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Projects\\PGIZ\\PGIZ_CourseWork\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F6946C71-53D6-4A7B-8B2E-C3540BA1D523}|CourseWork.csproj|e:\\projects\\pgiz\\pgiz_coursework\\app\\gameobjects\\materials\\6grannik.mtl||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{F6946C71-53D6-4A7B-8B2E-C3540BA1D523}|CourseWork.csproj|solutionrelative:app\\gameobjects\\materials\\6grannik.mtl||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6946C71-53D6-4A7B-8B2E-C3540BA1D523}|CourseWork.csproj|e:\\projects\\pgiz\\pgiz_coursework\\app\\gameobjects\\materials\\cylinder.mtl||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{F6946C71-53D6-4A7B-8B2E-C3540BA1D523}|CourseWork.csproj|solutionrelative:app\\gameobjects\\materials\\cylinder.mtl||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6946C71-53D6-4A7B-8B2E-C3540BA1D523}|CourseWork.csproj|e:\\projects\\pgiz\\pgiz_coursework\\app\\gameobjects\\materials\\icosahedron2.mtl||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{F6946C71-53D6-4A7B-8B2E-C3540BA1D523}|CourseWork.csproj|solutionrelative:app\\gameobjects\\materials\\icosahedron2.mtl||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6946C71-53D6-4A7B-8B2E-C3540BA1D523}|CourseWork.csproj|e:\\projects\\pgiz\\pgiz_coursework\\app\\scripts\\textures\\loader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6946C71-53D6-4A7B-8B2E-C3540BA1D523}|CourseWork.csproj|solutionrelative:app\\scripts\\textures\\loader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6946C71-53D6-4A7B-8B2E-C3540BA1D523}|CourseWork.csproj|e:\\projects\\pgiz\\pgiz_coursework\\app\\scripts\\textures\\meshobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6946C71-53D6-4A7B-8B2E-C3540BA1D523}|CourseWork.csproj|solutionrelative:app\\scripts\\textures\\meshobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6946C71-53D6-4A7B-8B2E-C3540BA1D523}|CourseWork.csproj|e:\\projects\\pgiz\\pgiz_coursework\\app\\scripts\\game\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6946C71-53D6-4A7B-8B2E-C3540BA1D523}|CourseWork.csproj|solutionrelative:app\\scripts\\game\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6946C71-53D6-4A7B-8B2E-C3540BA1D523}|CourseWork.csproj|e:\\projects\\pgiz\\pgiz_coursework\\app\\scripts\\textures\\renderer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6946C71-53D6-4A7B-8B2E-C3540BA1D523}|CourseWork.csproj|solutionrelative:app\\scripts\\textures\\renderer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6946C71-53D6-4A7B-8B2E-C3540BA1D523}|CourseWork.csproj|e:\\projects\\pgiz\\pgiz_coursework\\app\\scripts\\textures\\texture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6946C71-53D6-4A7B-8B2E-C3540BA1D523}|CourseWork.csproj|solutionrelative:app\\scripts\\textures\\texture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 93,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Loader.cs",
+              "DocumentMoniker": "E:\\Projects\\PGIZ\\PGIZ_CourseWork\\App\\Scripts\\Textures\\Loader.cs",
+              "RelativeDocumentMoniker": "App\\Scripts\\Textures\\Loader.cs",
+              "ToolTip": "E:\\Projects\\PGIZ\\PGIZ_CourseWork\\App\\Scripts\\Textures\\Loader.cs",
+              "RelativeToolTip": "App\\Scripts\\Textures\\Loader.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-24T15:48:48.49Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "icosahedron2.mtl",
+              "DocumentMoniker": "E:\\Projects\\PGIZ\\PGIZ_CourseWork\\App\\GameObjects\\Materials\\icosahedron2.mtl",
+              "RelativeDocumentMoniker": "App\\GameObjects\\Materials\\icosahedron2.mtl",
+              "ToolTip": "E:\\Projects\\PGIZ\\PGIZ_CourseWork\\App\\GameObjects\\Materials\\icosahedron2.mtl",
+              "RelativeToolTip": "App\\GameObjects\\Materials\\icosahedron2.mtl",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-04-24T15:52:51.964Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "cylinder.mtl",
+              "DocumentMoniker": "E:\\Projects\\PGIZ\\PGIZ_CourseWork\\App\\GameObjects\\Materials\\cylinder.mtl",
+              "RelativeDocumentMoniker": "App\\GameObjects\\Materials\\cylinder.mtl",
+              "ToolTip": "E:\\Projects\\PGIZ\\PGIZ_CourseWork\\App\\GameObjects\\Materials\\cylinder.mtl",
+              "RelativeToolTip": "App\\GameObjects\\Materials\\cylinder.mtl",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-04-24T15:52:48.376Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "6grannik.mtl",
+              "DocumentMoniker": "E:\\Projects\\PGIZ\\PGIZ_CourseWork\\App\\GameObjects\\Materials\\6grannik.mtl",
+              "RelativeDocumentMoniker": "App\\GameObjects\\Materials\\6grannik.mtl",
+              "ToolTip": "E:\\Projects\\PGIZ\\PGIZ_CourseWork\\App\\GameObjects\\Materials\\6grannik.mtl",
+              "RelativeToolTip": "App\\GameObjects\\Materials\\6grannik.mtl",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-04-24T15:52:47.258Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Game.cs",
+              "DocumentMoniker": "E:\\Projects\\PGIZ\\PGIZ_CourseWork\\App\\Scripts\\Game\\Game.cs",
+              "RelativeDocumentMoniker": "App\\Scripts\\Game\\Game.cs",
+              "ToolTip": "E:\\Projects\\PGIZ\\PGIZ_CourseWork\\App\\Scripts\\Game\\Game.cs",
+              "RelativeToolTip": "App\\Scripts\\Game\\Game.cs",
+              "ViewState": "AQIAAOIAAAAAAAAAAAAgwCkAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-24T15:41:40.144Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MeshObject.cs",
+              "DocumentMoniker": "E:\\Projects\\PGIZ\\PGIZ_CourseWork\\App\\Scripts\\Textures\\MeshObject.cs",
+              "RelativeDocumentMoniker": "App\\Scripts\\Textures\\MeshObject.cs",
+              "ToolTip": "E:\\Projects\\PGIZ\\PGIZ_CourseWork\\App\\Scripts\\Textures\\MeshObject.cs",
+              "RelativeToolTip": "App\\Scripts\\Textures\\MeshObject.cs",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAmwCcAAACZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-24T15:41:10.017Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Texture.cs",
+              "DocumentMoniker": "E:\\Projects\\PGIZ\\PGIZ_CourseWork\\App\\Scripts\\Textures\\Texture.cs",
+              "RelativeDocumentMoniker": "App\\Scripts\\Textures\\Texture.cs",
+              "ToolTip": "E:\\Projects\\PGIZ\\PGIZ_CourseWork\\App\\Scripts\\Textures\\Texture.cs",
+              "RelativeToolTip": "App\\Scripts\\Textures\\Texture.cs",
+              "ViewState": "AQIAACMAAAAAAAAAAAAuwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-24T15:41:07.286Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Renderer.cs",
+              "DocumentMoniker": "E:\\Projects\\PGIZ\\PGIZ_CourseWork\\App\\Scripts\\Textures\\Renderer.cs",
+              "RelativeDocumentMoniker": "App\\Scripts\\Textures\\Renderer.cs",
+              "ToolTip": "E:\\Projects\\PGIZ\\PGIZ_CourseWork\\App\\Scripts\\Textures\\Renderer.cs",
+              "RelativeToolTip": "App\\Scripts\\Textures\\Renderer.cs",
+              "ViewState": "AQIAAPgAAAAAAAAAAAAowDsAAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-24T15:35:07.988Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

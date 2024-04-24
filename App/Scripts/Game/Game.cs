@@ -18,44 +18,44 @@ namespace Lab01.App.Scripts.Game
     {
         RenderForm _renderForm;
 
-        const int NUM_LIGHTS = 4;
+        private const int NUM_LIGHTS = 4;
 
-        Texture _sixGrannikTexture;
-        Texture _cylinderTexture;
-        Texture _plotTexture;
-        MeshObject _sixGrannik;
-        MeshObject _plot;
-        MeshObject _cylinder;
+        private Texture _sixGrannikTexture;
+        private Texture _cylinderTexture;
+        private Texture _plotTexture;
+        private MeshObject _sixGrannik;
+        private MeshObject _plot;
+        private MeshObject _cylinder;
 
-        MeshObject[] _lights = new MeshObject[NUM_LIGHTS];
-        Camera _camera;
+        private MeshObject[] _lights = new MeshObject[NUM_LIGHTS];
+        private Camera _camera;
 
-        DirectX3DGraphics _directX3DGraphics;
-        Renderer _renderer;
+        private DirectX3DGraphics _directX3DGraphics;
+        private Renderer _renderer;
 
-        SharpDX.Direct2D1.Bitmap _playerBitmap;
+        private Bitmap _playerBitmap;
 
-        SharpDX.Direct2D1.DeviceContext _d2dContext;
+        private DeviceContext _d2dContext;
 
-        private SharpDX.Direct2D1.Bitmap1 d2dTarget;
+        private Bitmap1 d2dTarget;
 
-        SharpDX.Direct2D1.SolidColorBrush _greenBrush;
+        private SolidColorBrush _greenBrush;
 
-        SharpDX.Direct2D1.SolidColorBrush _redBrush;
+        private SolidColorBrush _redBrush;
 
-        SharpDX.Direct2D1.SolidColorBrush _blueBrush;
+        private SolidColorBrush _blueBrush;
 
-        SharpDX.Direct2D1.SolidColorBrush _purpleBrush;
+        private SolidColorBrush _purpleBrush;
 
-        SharpDX.Direct2D1.SolidColorBrush _whiteBrush;
+        private SolidColorBrush _whiteBrush;
 
-        SharpDX.Direct2D1.SolidColorBrush _secondGreenBrush;
+        private SolidColorBrush _secondGreenBrush;
 
-        SharpDX.Direct2D1.SolidColorBrush _blackBrush;
+        private SolidColorBrush _blackBrush;
 
-        SharpDX.Direct2D1.SolidColorBrush _secondBlackBrush;
-        
-        SharpDX.Direct2D1.SolidColorBrush _danilkaBrush;
+        private SolidColorBrush _secondBlackBrush;
+
+        private SolidColorBrush _danilkaBrush;
 
         float _sixGrannikSpeed = 0.0f;
 
@@ -63,36 +63,36 @@ namespace Lab01.App.Scripts.Game
 
         const float g = 9.81f;
 
-        MaterialProperties _defaultMaterial;
+        private MaterialProperties _defaultMaterial;
 
-        MaterialProperties _floorMaterial;
+        private MaterialProperties _floorMaterial;
 
-        MaterialProperties _blackMaterial;
+        private MaterialProperties _blackMaterial;
 
-        MaterialProperties _icosahedronMaterial;
+        private MaterialProperties _icosahedronMaterial;
 
-        MaterialProperties _currentTetrahedronMaterial;
-        MaterialProperties _currentIcosahedronMaterial;
+        private MaterialProperties _currentTetrahedronMaterial;
+        private MaterialProperties _currentIcosahedronMaterial;
 
-        MaterialProperties _contactingMaterial;
+        private MaterialProperties _contactingMaterial;
 
-        MaterialProperties _currentIcosahedronColliderMaterial;
-        MaterialProperties _currentTetrahedronColliderMaterial;
+        private MaterialProperties _currentIcosahedronColliderMaterial;
+        private MaterialProperties _currentTetrahedronColliderMaterial;
 
 
-        MaterialProperties _rayMaterial;
+        private MaterialProperties _rayMaterial;
 
-        LightProperties _light;
+        private LightProperties _light;
 
-        bool _isMap = false;
+        private bool _isMap = false;
 
-        BoundingBox _sixGrannikCollider;
+        private BoundingBox _sixGrannikCollider;
 
-        BoundingBox _plotCollider;
+        private BoundingBox _plotCollider;
 
-        BoundingSphere _cylinderCollider;
+        private BoundingSphere _cylinderCollider;
 
-        Ray _cameraRay;
+        private Ray _cameraRay;
 
         Vector4[] _lightColors = new Vector4[NUM_LIGHTS]
         {
@@ -120,8 +120,6 @@ namespace Lab01.App.Scripts.Game
 
         List<MeshObject> _colliders = new List<MeshObject>();
 
-        MeshObject _cuban;
-
         Vector2 _plotSize;
 
 
@@ -132,7 +130,7 @@ namespace Lab01.App.Scripts.Game
         public Game()
         {
             _renderForm = new RenderForm();
-            
+
             _renderForm.UserResized += RenderFormResizedCallback;
             _directX3DGraphics = new DirectX3DGraphics(_renderForm);
             _renderer = new Renderer(_directX3DGraphics);
@@ -162,7 +160,6 @@ namespace Lab01.App.Scripts.Game
                     UseTexture = 0
                 }
             };
-
 
 
             _blackMaterial = new MaterialProperties
@@ -228,7 +225,6 @@ namespace Lab01.App.Scripts.Game
             _sixGrannikCollider = new BoundingBox();
 
             _cylinderCollider = new BoundingSphere();
-            
 
 
             _light.Lights = new Light[NUM_LIGHTS];
@@ -255,10 +251,10 @@ namespace Lab01.App.Scripts.Game
 
             Loader loader = new Loader(_directX3DGraphics);
 
-            _sixGrannikTexture = loader.LoadTextureFromFile("6grannik.png", _renderer.AnisotropicSampler);
-            _cylinderTexture = loader.LoadTextureFromFile("CocaCola.png", _renderer.AnisotropicSampler);
+            _sixGrannikTexture = loader.LoadTextureFromFile("App/GameObjects/Images/6grannik.png", _renderer.AnisotropicSampler);
+            _cylinderTexture = loader.LoadTextureFromFile("App/GameObjects/Images/CocaCola.png", _renderer.AnisotropicSampler);
 
-            _plotTexture = loader.LoadTextureFromFile("plotTexture.png", _renderer.AnisotropicSampler);
+            _plotTexture = loader.LoadTextureFromFile("App/GameObjects/Images/plotTexture.png", _renderer.AnisotropicSampler);
 
             // -------------------------------------------------------------------------------
 
@@ -268,11 +264,14 @@ namespace Lab01.App.Scripts.Game
             var fileStream = new FileStream("6grannik.obj", FileMode.Open);
             var firstResult = objLoader.Load(fileStream);
 
-            _sixGrannik = loader.LoadMeshObjectFromObjFile(firstResult, new Vector4(0.0f, 0.0f, 0.0f, 1.0f), 0f, 0f, 0.0f, ref _sixGrannikTexture, _renderer.AnisotropicSampler);
-            _sixGrannikCollider = new BoundingBox( new Vector3(-1.0f, -1.0f, -1.0f), new Vector3(1.0f, 1.0f, 1.0f)); 
-            _cuban = loader.MakeCube(new Vector4(0.0f, 0.0f, 0.0f, 1.0f), 0f, 0f, 0.0f);
-            _colliders.Add(loader.MakeBoxCollider(_sixGrannikCollider, new Vector4(0.0f, 0.0f, 0.0f, 1.0f), 0f, 0f, 0.0f));
-            _plot = loader.MakePlot(new Vector4(0.0f, 0.0f, 0.0f, 1.0f), 0.0f, 0.0f, 0.0f, _plotSize.X, _plotSize.Y, -10f, ref _plotCollider);
+            _sixGrannik = loader.LoadMeshObjectFromObjFile(firstResult, new Vector4(0.0f, 0.0f, 0.0f, 1.0f), 0f, 0f,
+                0.0f, ref _sixGrannikTexture, _renderer.AnisotropicSampler);
+            _sixGrannikCollider = new BoundingBox(new Vector3(-1.0f, -1.0f, -1.0f), new Vector3(1.0f, 1.0f, 1.0f));
+            loader.MakeCube(new Vector4(0.0f, 0.0f, 0.0f, 1.0f), 0f, 0f, 0.0f);
+            _colliders.Add(loader.MakeBoxCollider(_sixGrannikCollider, new Vector4(0.0f, 0.0f, 0.0f, 1.0f), 0f, 0f,
+                0.0f));
+            _plot = loader.MakePlot(new Vector4(0.0f, 0.0f, 0.0f, 1.0f), 0.0f, 0.0f, 0.0f, _plotSize.X, _plotSize.Y,
+                -10f, ref _plotCollider);
 
             // -------------------------------------------------------------------------------
 
@@ -282,46 +281,44 @@ namespace Lab01.App.Scripts.Game
             var secondFileStream = new FileStream("cylinder.obj", FileMode.Open);
             var secondResult = objLoader2.Load(secondFileStream);
 
-            _cylinder = loader.LoadMeshObjectFromObjFile(secondResult, new Vector4(3.5f, 0.0f, 0.0f, 1.0f), 0f, 0f, 0.0f, ref _cylinderTexture, _renderer.AnisotropicSampler);
-            _cylinderCollider = new BoundingSphere(new Vector3(_cylinder.Position.X, _cylinder.Position.Y, _cylinder.Position.Z), 1.0f);
+            _cylinder = loader.LoadMeshObjectFromObjFile(secondResult, new Vector4(3.5f, 0.0f, 0.0f, 1.0f), 0f, 0f,
+                0.0f, ref _cylinderTexture, _renderer.AnisotropicSampler);
+            _cylinderCollider =
+                new BoundingSphere(new Vector3(_cylinder.Position.X, _cylinder.Position.Y, _cylinder.Position.Z), 1.0f);
             _colliders.Add(loader.MakeBoxCollider(_plotCollider, new Vector4(0.0f, 0.0f, 0.0f, 1.0f), 0f, 0f, 0.0f));
             _colliders.Add(loader.MakeSphereCollider(_cylinderCollider, 0.0f, 0.0f, 0.0f));
-            
+
             _camera = new Camera(new Vector4(0.0f, 2.0f, -10.0f, 1.0f));
             _timeHelper = new TimeHelper();
 
 
+            _cameraRay = new Ray(new Vector3(_camera.Position.X, _camera.Position.Y, _camera.Position.Z),
+                _camera.GetViewTo());
 
-            _cameraRay = new Ray(new Vector3(_camera.Position.X, _camera.Position.Y, _camera.Position.Z), _camera.GetViewTo());
-
-            //_blackBrush = new SharpDX.Direct2D1.SolidColorBrush(_directX3DGraphics.D2dContext, SharpDX.Color.Black);
-
-            var green = SharpDX.Color.Green;
+            var green = Color.Green;
 
             green.A = 100;
 
-            var white = SharpDX.Color.WhiteSmoke;
+            var white = Color.WhiteSmoke;
             white.A = 70;
 
-            var black = SharpDX.Color.Black;
+            var black = Color.Black;
             black.A = 100;
 
-            var gg = new SharpDX.Color(244, 230, 203);
+            var gg = new Color(244, 230, 203);
             gg.A = 128;
 
             _greenBrush = new SolidColorBrush(_directX3DGraphics.D2DRenderTarget, green);
-            _redBrush = new SolidColorBrush(_directX3DGraphics.D2DRenderTarget, SharpDX.Color.Red);
-            _blueBrush = new SolidColorBrush(_directX3DGraphics.D2DRenderTarget, SharpDX.Color.Blue);
-            _purpleBrush = new SolidColorBrush(_directX3DGraphics.D2DRenderTarget, SharpDX.Color.Purple);
-            _whiteBrush = new SolidColorBrush(_directX3DGraphics.D2DRenderTarget, SharpDX.Color.WhiteSmoke);
+            _redBrush = new SolidColorBrush(_directX3DGraphics.D2DRenderTarget, Color.Red);
+            _blueBrush = new SolidColorBrush(_directX3DGraphics.D2DRenderTarget, Color.Blue);
+            _purpleBrush = new SolidColorBrush(_directX3DGraphics.D2DRenderTarget, Color.Purple);
+            _whiteBrush = new SolidColorBrush(_directX3DGraphics.D2DRenderTarget, Color.WhiteSmoke);
 
-            green = SharpDX.Color.Green;
+            green = Color.Green;
             _secondGreenBrush = new SolidColorBrush(_directX3DGraphics.D2DRenderTarget, green);
             _blackBrush = new SolidColorBrush(_directX3DGraphics.D2DRenderTarget, black);
             _danilkaBrush = new SolidColorBrush(_directX3DGraphics.D2DRenderTarget, gg);
-            _secondBlackBrush = new SolidColorBrush(_directX3DGraphics.D2DRenderTarget, SharpDX.Color.Black);
-
-            //_playerBitmap = DirectX3DGraphics.LoadFromFile(_directX3DGraphics.D2DRenderTarget, "textureTetrahedron.png");
+            _secondBlackBrush = new SolidColorBrush(_directX3DGraphics.D2DRenderTarget, Color.Black);
 
             loader.Dispose();
             loader = null;
@@ -343,14 +340,14 @@ namespace Lab01.App.Scripts.Game
                 RenderFormResizedCallback(this, EventArgs.Empty);
                 _firstRun = false;
             }
+
             _timeHelper.Update();
             _renderForm.Text = "FPS: " + _timeHelper.FPS.ToString();
 
             _sixGrannikSpeed = _sixGrannikSpeed - g * _timeHelper.DeltaT;
 
-            if(!_sixGrannikCollider.Intersects(ref _plotCollider))
+            if (!_sixGrannikCollider.Intersects(ref _plotCollider))
             {
-
                 _sixGrannik.MoveBy(0f, _sixGrannikSpeed * _timeHelper.DeltaT, 0f);
                 _colliders[0].MoveBy(0f, _sixGrannikSpeed * _timeHelper.DeltaT, 0f);
                 _sixGrannikCollider.Maximum += new Vector3(0f, _sixGrannikSpeed * _timeHelper.DeltaT, 0f);
@@ -375,18 +372,9 @@ namespace Lab01.App.Scripts.Game
                 _currentIcosahedronMaterial = _contactingMaterial;
             }
 
-            /*if(!_cameraRay.Intersects(ref _cylinderCollider))
-            {
-                _currentIcosahedronColliderMaterial = _blackMaterial; 
-            }
-            else
-            {
-                _currentIcosahedronColliderMaterial = _rayMaterial;
-            }*/
-
             if (!_cameraRay.Intersects(ref _sixGrannikCollider))
             {
-                _currentTetrahedronColliderMaterial = _blackMaterial; 
+                _currentTetrahedronColliderMaterial = _blackMaterial;
             }
             else
             {
@@ -406,28 +394,32 @@ namespace Lab01.App.Scripts.Game
             {
                 cameraMovement += _camera.GetViewTo() * 0.1f;
             }
+
             if (_dxInput.IsKeyPressed(Key.S))
             {
                 cameraMovement -= _camera.GetViewTo() * 0.1f;
             }
+
             if (_dxInput.IsKeyPressed(Key.A))
             {
                 cameraMovement -= _camera.GetViewRight() * 0.1f;
             }
+
             if (_dxInput.IsKeyPressed(Key.D))
             {
-
                 cameraMovement += _camera.GetViewRight() * 0.1f;
             }
+
             if (_dxInput.IsKeyPressed(Key.Space))
             {
                 cameraMovement.Y += .1f;
             }
+
             if (_dxInput.IsKeyPressed(Key.LeftControl))
             {
                 cameraMovement.Y -= .1f;
             }
-            
+
             _camera.MoveBy(cameraMovement.X, cameraMovement.Y, cameraMovement.Z);
 
             _cameraRay.Position += cameraMovement;
@@ -439,14 +431,17 @@ namespace Lab01.App.Scripts.Game
             {
                 tetrahedronMovement.Z += .1f;
             }
+
             if (_dxInput.IsKeyPressed(Key.Down))
             {
                 tetrahedronMovement.Z -= .1f;
             }
+
             if (_dxInput.IsKeyPressed(Key.Left))
             {
                 tetrahedronMovement.X -= .1f;
             }
+
             if (_dxInput.IsKeyPressed(Key.Right))
             {
                 tetrahedronMovement.X += .1f;
@@ -461,9 +456,7 @@ namespace Lab01.App.Scripts.Game
                 _colliders[2].MoveBy(0f, 0.5f, 0f);
                 _cylinderCollider.Center += new Vector3(0f, 0.5f, 0f);
             }
-
-
-            PressKeyboard();
+            
             Matrix viewMatrix = _camera.GetViewMatrix();
             Matrix projectionMatrix = _camera.GetProjectionMatrix();
             _light.EyePosition = _camera.Position;
@@ -475,11 +468,11 @@ namespace Lab01.App.Scripts.Game
             _directX3DGraphics.ChangeDisplayType(SharpDX.Direct3D11.FillMode.Wireframe);
 
 
-            _renderer.SetPerObjectConstantBuffer(_currentIcosahedronColliderMaterial); 
+            _renderer.SetPerObjectConstantBuffer(_currentIcosahedronColliderMaterial);
             _renderer.UpdatePerObjectConstantBuffers(_colliders[2].GetWorldMatrix(), viewMatrix, projectionMatrix);
             _renderer.RenderMeshObject(_colliders[2]);
 
-            _renderer.SetPerObjectConstantBuffer(_currentTetrahedronColliderMaterial); 
+            _renderer.SetPerObjectConstantBuffer(_currentTetrahedronColliderMaterial);
             _renderer.UpdatePerObjectConstantBuffers(_colliders[0].GetWorldMatrix(), viewMatrix, projectionMatrix);
             _renderer.RenderMeshObject(_colliders[0]);
 
@@ -490,10 +483,6 @@ namespace Lab01.App.Scripts.Game
             _renderer.UpdatePerObjectConstantBuffers(_sixGrannik.GetWorldMatrix(), viewMatrix, projectionMatrix);
             _renderer.SetTexture(_sixGrannikTexture);
             _renderer.RenderMeshObject(_sixGrannik);
-
-
-
-            
 
 
             _renderer.SetPerObjectConstantBuffer(_floorMaterial);
@@ -520,7 +509,6 @@ namespace Lab01.App.Scripts.Game
             }
 
 
-
             TextFormat testTextFormat = new TextFormat(_directX3DGraphics.FactoryDWrite, "Calibri", 28)
             {
                 TextAlignment = SharpDX.DirectWrite.TextAlignment.Center,
@@ -533,11 +521,7 @@ namespace Lab01.App.Scripts.Game
 
             _directX3DGraphics.D2DRenderTarget.EndDraw();
             _directX3DGraphics.SwapChain.Present(0, PresentFlags.None);
-
-
-            //_directX3DGraphics.D2dContext.DrawRectangle(new SharpDX.Mathematics.Interop.RawRectangleF(
-            //    _renderForm.Left + 100.0f, _renderForm.Top + 100.0f, _renderForm.Right - 100.0f, _renderForm.Bottom - 100.0f), _blackBrush);
-            // _directX3DGraphics.D2dContext.EndDraw();
+            
         }
 
         private void CheckPositions()
@@ -545,49 +529,6 @@ namespace Lab01.App.Scripts.Game
             var b = _sixGrannik.Position;
             var a = _camera.Position;
             var c = _sixGrannik.Position - _camera.Position;
-        }
-
-        private void PressKeyboard()
-        {
-            /* Vector3 tetrahedronMovement = Vector3.Zero;
-            if(_dxInput.IsKeyPressed(Key.W))
-            {
-                tetrahedronMovement.Z += -.1f;
-            }
-            if(_dxInput.IsKeyPressed(Key.S))
-            {
-                tetrahedronMovement.Z += .1f;
-            }
-            if(_dxInput.IsKeyPressed(Key.A))
-            {
-                tetrahedronMovement.X += -.1f;
-            }
-            if(_dxInput.IsKeyPressed(Key.D))
-            {
-                tetrahedronMovement.X += .1f;
-            }
-
-            _tetrahedron.MoveBy(tetrahedronMovement.X, tetrahedronMovement.Y, tetrahedronMovement.Z);*/
-
-            /*Vector3 tetrahedronMovement = Vector3.Zero;
-            if (_dxInput.IsKeyReleased(Key.W))
-            {
-                tetrahedronMovement += _tetrahedron.GetForwardVector() * 1f;
-            }
-            if (_dxInput.IsKeyReleased(Key.S))
-            {
-                tetrahedronMovement -= _tetrahedron.GetForwardVector() * 1f;
-            }
-            if (_dxInput.IsKeyReleased(Key.A))
-            {
-                tetrahedronMovement += _tetrahedron.GetRightVector() * 1f;
-            }
-            if (_dxInput.IsKeyReleased(Key.D))
-            {
-                tetrahedronMovement -= _tetrahedron.GetRightVector() * 1f;
-            }
-
-            _tetrahedron.MoveBy(tetrahedronMovement.X, tetrahedronMovement.Y, tetrahedronMovement.Z);*/
         }
 
         public void Run()

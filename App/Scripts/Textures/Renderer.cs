@@ -58,10 +58,8 @@ namespace Lab01.App.Scripts.Textures
         private Buffer11 _perObjectPixelShaderConstantBufferObject;
 
         private LightConstantBuffer _lightConstantBuffer;
-        //private Buffer11 _lightConstantBufferObject;
 
         private ConstantBuffer<LightConstantBuffer> _lightConstantBufferObject;
-        // private Buffer11 _materialPropertiesConstantBufferObject;
 
         private SamplerState _anisotropicSampler;
         public SamplerState AnisotropicSampler { get => _anisotropicSampler; }
@@ -72,10 +70,10 @@ namespace Lab01.App.Scripts.Textures
             _device = _directX3DGraphics.Device;
             _deviceContext = _directX3DGraphics.DeviceContext;
 
-            CompilationResult vertexShaderByteCode = ShaderBytecode.CompileFromFile("C:\\Projects\\PGIZ\\CourseWork\\PGIZ_CourseWork\\App\\Shaders\\vertex.hlsl", "vertexShader", "vs_5_0");
+            CompilationResult vertexShaderByteCode = ShaderBytecode.CompileFromFile("vertex.hlsl", "vertexShader", "vs_5_0"); 
             _vertexShader = new VertexShader(_device, vertexShaderByteCode);
 
-            CompilationResult pixelShaderByteCode = ShaderBytecode.CompileFromFile("C:\\Projects\\PGIZ\\CourseWork\\PGIZ_CourseWork\\App\\Shaders\\pixel.hlsl", "pixelShader", "ps_5_0");
+            CompilationResult pixelShaderByteCode = ShaderBytecode.CompileFromFile("pixel.hlsl", "pixelShader", "ps_5_0");
             _pixelShader = new PixelShader(_device, pixelShaderByteCode);
 
             InputElement[] inputElements = new[]
@@ -95,21 +93,6 @@ namespace Lab01.App.Scripts.Textures
             _deviceContext.VertexShader.Set(_vertexShader);
             _deviceContext.PixelShader.Set(_pixelShader);
 
-            /*SamplerStateDescription samplerStateDescription =
-                new SamplerStateDescription
-                {
-                    Filter = Filter.Anisotropic,
-                    AddressU = TextureAddressMode.Clamp,
-                    AddressV = TextureAddressMode.Clamp,
-                    AddressW = TextureAddressMode.Clamp,
-                    MipLodBias = 0.0f,
-                    MaximumAnisotropy = 16,
-                    ComparisonFunction = Comparison.Never,
-                    BorderColor = new SharpDX.Mathematics.Interop.RawColor4(
-                        1.0f, 1.0f, 1.0f, 1.0f),
-                    MinimumLod = 0,
-                    MaximumLod = float.MaxValue
-                };*/
             SamplerStateDescription samplerStateDescription =
                 new SamplerStateDescription
                 {
@@ -149,27 +132,10 @@ namespace Lab01.App.Scripts.Textures
                 ResourceOptionFlags.None,
                 0);
 
-            /*BufferDescription desc = new BufferDescription();
-
-            desc.Usage = ResourceUsage.Dynamic;
-            desc.BindFlags = BindFlags.ConstantBuffer;
-            desc.CpuAccessFlags = CpuAccessFlags.Write;
-            desc.OptionFlags = ResourceOptionFlags.None;
-            desc.StructureByteStride = 0;
-            desc.SizeInBytes = ;*/
-
             var size = Marshal.SizeOf<LightConstantBuffer>();
 
             var tstSize = Utilities.SizeOf<Vector4>() * 2 + Utilities.SizeOf<Light>() * 4;
 
-            /*_lightConstantBufferObject = new Buffer11(
-                _device,
-                tstSize,
-                ResourceUsage.Dynamic,
-                BindFlags.ConstantBuffer,
-                CpuAccessFlags.Write,
-                ResourceOptionFlags.None,
-                0);*/
             _lightConstantBufferObject = new ConstantBuffer<LightConstantBuffer>(_device);
         }
 
@@ -189,8 +155,6 @@ namespace Lab01.App.Scripts.Textures
         public void SetPerObjectConstantBuffer(MaterialProperties materialProperties)
         {
             _perObjectPixelShaderConstantBuffer.MaterialProperties = materialProperties;
-            /*_perObjectConstantBuffer.time = time;
-            _perObjectConstantBuffer.timeScaling = timeScaling;*/
         }
 
         public void BeginRender()
@@ -204,13 +168,10 @@ namespace Lab01.App.Scripts.Textures
             _perObjectConstantBuffer.WorldMatrix = world;
 
             _perObjectConstantBuffer.InverseTransposeWorldMatrix = Matrix.Transpose(Matrix.Invert(world));
-            //_perObjectConstantBuffer.InverseTransposeWorldMatrix.Invert();
-            //_perObjectConstantBuffer.InverseTransposeWorldMatrix.Transpose();
 
             Matrix viewProjectionMatrix = view * projection;
 
-            _perObjectConstantBuffer.WorldViewProjectionMatrix = world * viewProjectionMatrix; //Matrix.Multiply(Matrix.Multiply(world, view), projection);
-            //_perObjectConstantBuffer.WorldViewProjectionMatrix.Transpose();
+            _perObjectConstantBuffer.WorldViewProjectionMatrix = world * viewProjectionMatrix; 
           
             _deviceContext.MapSubresource(_perObjectConstantBufferObject, MapMode.WriteDiscard, SharpDX.Direct3D11.MapFlags.None, out DataStream dataStream);
             dataStream.Write(_perObjectConstantBuffer);
@@ -223,10 +184,6 @@ namespace Lab01.App.Scripts.Textures
             _deviceContext.PixelShader.SetConstantBuffer(0, _perObjectPixelShaderConstantBufferObject);
 
 
-            /*_deviceContext.MapSubresource(_lightConstantBufferObject, MapMode.WriteDiscard, SharpDX.Direct3D11.MapFlags.None, out DataStream lightDataStream);
-            lightDataStream.Write(_lightConstantBuffer);
-            _deviceContext.UnmapSubresource(_lightConstantBufferObject, 0);
-            _deviceContext.PixelShader.SetConstantBuffer(1, _lightConstantBufferObject);*/
 
             _lightConstantBufferObject.UpdateValue(_lightConstantBuffer);
 
@@ -234,23 +191,7 @@ namespace Lab01.App.Scripts.Textures
             _deviceContext.PixelShader.SetConstantBuffer(1, _lightConstantBufferObject.Buffer);
 
 
-            /*
-             * 
-            _perObjectConstantBuffer.WorldMatrix = world;
-            _perObjectConstantBuffer.InverseTransposeWorldMatrix = Matrix.Transpose(Matrix.Invert(world));
-            _perObjectConstantBuffer.WorldViewProjectionMatrix = Matrix.Multiply(Matrix.Multiply(world, view), projection);
-            _perObjectConstantBuffer.WorldViewProjectionMatrix.Transpose();
-          
-            _deviceContext.MapSubresource(_perObjectConstantBufferObject, MapMode.WriteDiscard, SharpDX.Direct3D11.MapFlags.None, out DataStream dataStream);
-            dataStream.Write(_perObjectConstantBuffer);
-            _deviceContext.UnmapSubresource(_perObjectConstantBufferObject, 0);
-            _deviceContext.VertexShader.SetConstantBuffer(0, _perObjectConstantBufferObject);
-
-            _deviceContext.MapSubresource(_perObjectPixelShaderConstantBufferObject, MapMode.WriteDiscard, SharpDX.Direct3D11.MapFlags.None, out dataStream);
-            dataStream.Write(_perObjectPixelShaderConstantBuffer);
-            _deviceContext.UnmapSubresource(_perObjectPixelShaderConstantBufferObject, 0);
-            _deviceContext.PixelShader.SetConstantBuffer(0, _perObjectPixelShaderConstantBufferObject);
-             */
+            
         }
 
         public void EndRender()

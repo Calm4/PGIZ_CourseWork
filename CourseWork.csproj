@@ -255,16 +255,27 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App\GameObjects\Images\6grannik.png" />
-    <Content Include="App\GameObjects\Images\CocaCola.png" />
-    <Content Include="App\GameObjects\Images\plotTexture.png" />
-    <Content Include="App\GameObjects\Images\texture.bmp" />
-    <Content Include="App\Shaders\pixel.hlsl">
+    <Content Include="App\GameObjects\Images\6grannik.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="App\Shaders\vertex.hlsl">
+    <Content Include="App\GameObjects\Images\CocaCola.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="App\GameObjects\Images\plotTexture.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App\GameObjects\Images\texture.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="pixel.hlsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vertex.hlsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App\Shaders\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
