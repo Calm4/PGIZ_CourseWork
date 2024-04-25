@@ -86,3 +86,4 @@ C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\App\GameObjects\Images\plo
 C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\App\GameObjects\Images\texture.bmp
 C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\pixel.hlsl
 C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\vertex.hlsl
+C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\App\GameObjects\Objects\66grannik.obj

@@ -35,7 +35,7 @@ namespace Lab01.App.Scripts.Environment
         {
             Matrix rotation = Matrix.RotationYawPitchRoll(_yaw, _pitch, _roll);
             Vector3 viewTo = (Vector3)Vector4.Transform(Vector4.UnitZ, rotation);
-
+            viewTo.Y = 0f;
             return viewTo;
         }
 
