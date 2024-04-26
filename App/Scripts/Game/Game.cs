@@ -21,8 +21,8 @@ namespace Lab01.App.Scripts.Game
 
         private const int NUM_LIGHTS = 4;
 
-        private Texture parallelepiped1Texture;
-        private Texture parallelepiped2Texture;
+        private Texture oboiTexture;
+        private Texture _potolokTexture;
         private Texture _sixGrannikTexture;
         private Texture _cylinderTexture;
         private Texture _plotTexture;
@@ -30,7 +30,10 @@ namespace Lab01.App.Scripts.Game
         private MeshObject _sixGrannik;
         private MeshObject _parallelepiped1;
         private MeshObject _parallelepiped2;
+        private MeshObject _parallelepiped3;
+        private MeshObject _parallelepiped4;
         private MeshObject _plot;
+        private MeshObject _potolok;
         private MeshObject _cylinder;
         private MeshObject _player;
 
@@ -98,10 +101,12 @@ namespace Lab01.App.Scripts.Game
         private BoundingBox _sixGrannikCollider;
 
         private BoundingBox _plotCollider;
+        private BoundingBox _potolokCollider;
 
         private BoundingSphere _cylinderCollider;
         private BoundingBox _parallelepipedCollider1;
         private BoundingBox _parallelepipedCollider2;
+        private BoundingBox _parallelepipedCollider3;
 
         private Ray _cameraRay;
 
@@ -134,6 +139,7 @@ namespace Lab01.App.Scripts.Game
         List<MeshObject> _colliders = new List<MeshObject>();
 
         Vector2 _plotSize;
+        Vector2 _potolokSize;
 
 
         TimeHelper _timeHelper;
@@ -180,12 +186,13 @@ namespace Lab01.App.Scripts.Game
         private void InitializeGameObjects(Loader loader)
         {
             _plotSize = new Vector2(100.0f, 100.0f);
+            _potolokSize = new Vector2(25, 25.0f);
             _sixGrannikTexture = loader.LoadTextureFromFile("App/GameObjects/Images/6grannik.png", _renderer.AnisotropicSampler);
             _cylinderTexture = loader.LoadTextureFromFile("App/GameObjects/Images/CocaCola.png", _renderer.AnisotropicSampler);
             _plotTexture = loader.LoadTextureFromFile("App/GameObjects/Images/plotTexture.png", _renderer.AnisotropicSampler);
-            parallelepiped1Texture = loader.LoadTextureFromFile("App/GameObjects/Images/plotTexture.png", _renderer.AnisotropicSampler);
-            parallelepiped2Texture = loader.LoadTextureFromFile("App/GameObjects/Images/plotTexture.png", _renderer.AnisotropicSampler);
+            oboiTexture = loader.LoadTextureFromFile("App/GameObjects/Images/oboi.jpg", _renderer.AnisotropicSampler);
             _playerTexture = loader.LoadTextureFromFile("App/GameObjects/Images/CocaCola.png", _renderer.AnisotropicSampler);
+            _potolokTexture = loader.LoadTextureFromFile("App/GameObjects/Images/potolok.jpg", _renderer.AnisotropicSampler);
 
             var playerLoaderFactory = new ObjLoaderFactory();
             var playerLoader = playerLoaderFactory.Create();
@@ -227,25 +234,50 @@ namespace Lab01.App.Scripts.Game
             var objLoaderFactory3 = new ObjLoaderFactory();
             var objLoader3 = objLoaderFactory3.Create();
 
-            var FileStream3 = new FileStream("LeftWall.obj", FileMode.Open);
+            var FileStream3 = new FileStream("oboi1.obj", FileMode.Open);
             var Result3 = objLoader3.Load(FileStream3);
 
-            _parallelepiped1 = loader.LoadMeshObjectFromObjFile(Result3, new Vector4(-2f, 1.0f, -5, 1.0f), 0f, 0f, 0.0f,
-                ref parallelepiped1Texture, _renderer.AnisotropicSampler);
+            _parallelepiped1 = loader.LoadMeshObjectFromObjFile(Result3, new Vector4(0f, 0f, 20f, 1.0f), 0f, 0f, 0.0f,
+                ref oboiTexture, _renderer.AnisotropicSampler);
+            _parallelepipedCollider1 = new BoundingBox(new Vector3(Result3.Vertices.Min(v => v.X), Result3.Vertices.Min(v => v.Y), Result3.Vertices.Min(v => v.Z)) + (Vector3)_parallelepiped1.Position,
+                new Vector3(Result3.Vertices.Max(v => v.X), Result3.Vertices.Max(v => v.Y), Result3.Vertices.Max(v => v.Z)) + (Vector3)_parallelepiped1.Position);
 
             var objLoaderFactory4 = new ObjLoaderFactory();
             var objLoader4 = objLoaderFactory4.Create();
 
-            var FileStream4 = new FileStream("RightWall.obj", FileMode.Open);
+            var FileStream4 = new FileStream("oboi2.obj", FileMode.Open);
             var Result4 = objLoader4.Load(FileStream4);
 
 
-            _parallelepiped2 = loader.LoadMeshObjectFromObjFile(Result4, new Vector4(2f, 0.0f, 5, 1.0f), 0f, 0f, 0.0f,
-                ref parallelepiped2Texture, _renderer.AnisotropicSampler);
+            _parallelepiped2 = loader.LoadMeshObjectFromObjFile(Result4, new Vector4(0f, 0f, -20f, 1.0f), 0f, 0f, 0.0f,
+                ref oboiTexture, _renderer.AnisotropicSampler);
 
             _parallelepipedCollider2 = new BoundingBox(new Vector3(Result4.Vertices.Min(v => v.X), Result4.Vertices.Min(v => v.Y), Result4.Vertices.Min(v => v.Z)) + (Vector3)_parallelepiped2.Position,
                 new Vector3(Result4.Vertices.Max(v => v.X), Result4.Vertices.Max(v => v.Y), Result4.Vertices.Max(v => v.Z)) + (Vector3)_parallelepiped2.Position);
+
+            var objLoaderFactory5 = new ObjLoaderFactory();
+            var objLoader5 = objLoaderFactory5.Create();
+
+            var FileStream5 = new FileStream("oboi_p1.obj", FileMode.Open);
+            var Result5 = objLoader5.Load(FileStream5);
+
+            _parallelepiped3 = loader.LoadMeshObjectFromObjFile(Result5, new Vector4(-20f, 0f, 0f, 1.0f), 0f, 0f, 0.0f,
+                ref oboiTexture, _renderer.AnisotropicSampler);
+
+            _parallelepipedCollider3 = new BoundingBox(new Vector3(Result5.Vertices.Min(v => v.X), Result5.Vertices.Min(v => v.Y), Result5.Vertices.Min(v => v.Z)) + (Vector3)_parallelepiped3.Position,
+                new Vector3(Result5.Vertices.Max(v => v.X), Result5.Vertices.Max(v => v.Y), Result5.Vertices.Max(v => v.Z)) + (Vector3)_parallelepiped3.Position);
+
+
+            var objLoaderFactory6 = new ObjLoaderFactory();
+            var objLoader6 = objLoaderFactory5.Create();
+
+            var FileStream6 = new FileStream("potolok.obj", FileMode.Open);
+            var Result6 = objLoader6.Load(FileStream6);
+
+            _potolok = loader.MakePlot( new Vector4(0f, 4f, 0f, 1.0f), 0f, 0f, 0.0f, _potolokSize.X, _potolokSize.Y, 4F,ref _potolokCollider);
+
             _camera = new Camera(new Vector4(_player.Position.X, 1.8f, _player.Position.Z, 1.0f));
+
             _timeHelper = new TimeHelper();
 
             _cameraRay = new Ray(new Vector3(_camera.Position.X, _camera.Position.Y, _camera.Position.Z),
@@ -257,7 +289,7 @@ namespace Lab01.App.Scripts.Game
             //_sixGrannikCollider = new BoundingBox(new Vector3(-1f, 0.0f, 4.5f), new Vector3(1f, 2.0f, 6.5f));
             //_playerCollider = new BoundingBox(new Vector3(-0.25f, 0f, -0.25f), new Vector3(0.25f, 1.8f, 0.25f));
             _cylinderCollider = new BoundingSphere(new Vector3(_cylinder.Position.X, _cylinder.Position.Y, _cylinder.Position.Z), 1.0f);
-            _parallelepipedCollider1 = new BoundingBox(new Vector3(-10.5f, 0f, -20f), new Vector3(-10f, 4.0f, 20f));
+
 
             _colliders.Add(loader.MakeBoxCollider(_sixGrannikCollider, new Vector4(_sixGrannik.Position.X, _sixGrannik.Position.Y, _sixGrannik.Position.Z, 1.0f), 0f, 0f, 0.0f));
             _colliders.Add(loader.MakeBoxCollider(_plotCollider, new Vector4(0.0f, 0.0f, 0.0f, 1.0f), 0f, 0f, 0.0f));
@@ -266,6 +298,8 @@ namespace Lab01.App.Scripts.Game
 
             _colliders.Add(loader.MakeBoxCollider(_parallelepipedCollider1, new Vector4(_parallelepiped1.Position.X, _parallelepiped1.Position.Y, _parallelepiped1.Position.Z, 1.0f), 0f, 0f, 0.0f));
             _colliders.Add(loader.MakeBoxCollider(_parallelepipedCollider2, new Vector4(_parallelepiped2.Position.X, _parallelepiped2.Position.Y, _parallelepiped2.Position.Z, 1.0f), 0f, 0f, 0.0f));
+            _colliders.Add(loader.MakeBoxCollider(_parallelepipedCollider3, new Vector4(_parallelepiped3.Position.X, _parallelepiped3.Position.Y, _parallelepiped3.Position.Z, 1.0f), 0f, 0f, 0.0f));
+            _colliders.Add(loader.MakeBoxCollider(_potolokCollider, new Vector4(0.0f, 0.0f, 0.0f, 1.0f), 0f, 0f, 0.0f));
         }
         private void CreateLights()
         {
@@ -375,7 +409,8 @@ namespace Lab01.App.Scripts.Game
             if (_sixGrannikCollider.Intersects(ref _playerCollider) ||
                 _cylinderCollider.Intersects(ref _playerCollider) ||
                 _parallelepipedCollider1.Intersects(ref _playerCollider) ||
-                _parallelepipedCollider2.Intersects(ref _playerCollider))
+                _parallelepipedCollider2.Intersects(ref _playerCollider) ||
+                _parallelepipedCollider3.Intersects(ref _playerCollider))
             {
                 // Если произошло столкновение, отменяем перемещение
                 _playerCollider.Minimum -= attemptedMovement;
@@ -585,22 +620,12 @@ namespace Lab01.App.Scripts.Game
 
             _directX3DGraphics.ChangeDisplayType(SharpDX.Direct3D11.FillMode.Wireframe);
 
-
-            _renderer.SetPerObjectConstantBuffer(_currentIcosahedronColliderMaterial);
-            _renderer.UpdatePerObjectConstantBuffers(_colliders[2].GetWorldMatrix(), viewMatrix, projectionMatrix);
-            _renderer.RenderMeshObject(_colliders[2]);
-
-            _renderer.SetPerObjectConstantBuffer(_currentTetrahedronColliderMaterial);
-            _renderer.UpdatePerObjectConstantBuffers(_colliders[0].GetWorldMatrix(), viewMatrix, projectionMatrix);
-            _renderer.RenderMeshObject(_colliders[0]);
-
-            _renderer.SetPerObjectConstantBuffer(_currentTetrahedronColliderMaterial);
-            _renderer.UpdatePerObjectConstantBuffers(_colliders[4].GetWorldMatrix(), viewMatrix, projectionMatrix);
-            _renderer.RenderMeshObject(_colliders[4]);
-
-            _renderer.SetPerObjectConstantBuffer(_currentTetrahedronColliderMaterial);
-            _renderer.UpdatePerObjectConstantBuffers(_colliders[5].GetWorldMatrix(), viewMatrix, projectionMatrix);
-            _renderer.RenderMeshObject(_colliders[5]);
+            for (int i = 0; i < _colliders.Count; i++)
+            {
+                _renderer.SetPerObjectConstantBuffer(_currentIcosahedronColliderMaterial);
+                _renderer.UpdatePerObjectConstantBuffers(_colliders[i].GetWorldMatrix(), viewMatrix, projectionMatrix);
+                _renderer.RenderMeshObject(_colliders[i]);
+            }
 
             _directX3DGraphics.ChangeDisplayType(SharpDX.Direct3D11.FillMode.Solid);
 
@@ -624,13 +649,23 @@ namespace Lab01.App.Scripts.Game
 
             _renderer.SetPerObjectConstantBuffer(_currentIcosahedronMaterial);
             _renderer.UpdatePerObjectConstantBuffers(_parallelepiped1.GetWorldMatrix(), viewMatrix, projectionMatrix);
-            _renderer.SetTexture(parallelepiped1Texture);
+            _renderer.SetTexture(oboiTexture);
             _renderer.RenderMeshObject(_parallelepiped1);
 
             _renderer.SetPerObjectConstantBuffer(_currentIcosahedronMaterial);
             _renderer.UpdatePerObjectConstantBuffers(_parallelepiped2.GetWorldMatrix(), viewMatrix, projectionMatrix);
-            _renderer.SetTexture(parallelepiped2Texture);
+            _renderer.SetTexture(oboiTexture);
             _renderer.RenderMeshObject(_parallelepiped2);
+
+            _renderer.SetPerObjectConstantBuffer(_currentIcosahedronMaterial);
+            _renderer.UpdatePerObjectConstantBuffers(_parallelepiped3.GetWorldMatrix(), viewMatrix, projectionMatrix);
+            _renderer.SetTexture(oboiTexture);
+            _renderer.RenderMeshObject(_parallelepiped3);
+
+            _renderer.SetPerObjectConstantBuffer(_currentIcosahedronMaterial);
+            _renderer.UpdatePerObjectConstantBuffers(_potolok.GetWorldMatrix(), viewMatrix, projectionMatrix);
+            _renderer.SetTexture(_potolokTexture);
+            _renderer.RenderMeshObject(_potolok);
 
             _renderer.EndRender();
 
@@ -668,6 +703,7 @@ namespace Lab01.App.Scripts.Game
             _sixGrannik.Dispose();
             _sixGrannikTexture.Dispose();
             _plot.Dispose();
+            _potolok.Dispose();
             _renderer.Dispose();
             _directX3DGraphics.Dispose();
         }

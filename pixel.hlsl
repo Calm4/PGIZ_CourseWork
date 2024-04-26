@@ -182,6 +182,7 @@ float4 pixelShader(PixelShaderInput IN) : SV_TARGET
     if (Material.UseTexture)
     {
         texColor = Texture.Sample(Sampler, IN.TexCoord);
+        return texColor;
     }
     else 
     {
@@ -194,33 +195,3 @@ float4 pixelShader(PixelShaderInput IN) : SV_TARGET
     return finalColor;
 
 }
-/*
-const vec4  diffColor = vec4 ( 0.5, 0.0, 0.0, 1.0 );
-    const vec4  specColor = vec4 ( 0.7, 0.7, 0.0, 1.0 );
-    const float specPower = 30.0;
-
-    vec3 n2   = normalize ( n );
-    vec3 l2   = normalize ( l );
-    vec3 v2   = normalize ( v );
-    vec3 r    = reflect ( -v2, n2 );
-    vec4 diff = diffColor * max ( dot ( n2, l2 ), 0.0 );
-    vec4 spec = specColor * pow ( max ( dot ( l2, r ), 0.0 ), specPower );
-
-    gl_FragColor = diff + spec;
-*/
-
-/*struct pixelData
-{
-	float4 position		: SV_POSITION;
-	float2 texCoord0    : TEXCOORD0;
-};
-
-Texture2D meshTexture : register(t0);
-sampler	  meshSampler : register(s0);
-
-float4 pixelShader(pixelData input) : SV_Target
-{
-	float4 texColor = {1, 1, 1, 1};
-	texColor = meshTexture.Sample(meshSampler, input.texCoord0);
-	return texColor;
-}	  */

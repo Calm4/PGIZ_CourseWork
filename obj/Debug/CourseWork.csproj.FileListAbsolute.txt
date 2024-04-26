@@ -89,3 +89,16 @@ C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\vertex.hlsl
 C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\App\GameObjects\Objects\LeftWall.obj
 C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\App\GameObjects\Objects\RightWall.obj
 C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\App\GameObjects\Objects\player.obj
+C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\App\GameObjects\Images\oboi.jpg
+C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\App\GameObjects\Materials\6grannik.mtl
+C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\App\GameObjects\Objects\6grannik.obj
+C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\App\GameObjects\Objects\cylinder.obj
+C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\App\GameObjects\Objects\icosahedron2.obj
+C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\App\GameObjects\Materials\oboi.mtl
+C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\App\GameObjects\Objects\oboi1.obj
+C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\App\GameObjects\Objects\oboi2.obj
+C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\App\GameObjects\Materials\oboi_p1.mtl
+C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\App\GameObjects\Objects\oboi_p1.obj
+C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\App\GameObjects\Images\potolok.jpg
+C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\App\GameObjects\potolok.mtl
+C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\App\GameObjects\potolok.obj

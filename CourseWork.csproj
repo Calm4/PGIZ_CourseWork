@@ -238,19 +238,48 @@
     <None Include="app.manifest" />
     <None Include="App\Configs\app.config" />
     <None Include="App\Configs\packages.config" />
-    <None Include="App\GameObjects\Materials\6grannik.mtl" />
+    <None Include="App\GameObjects\Materials\6grannik.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="App\GameObjects\Materials\cylinder.mtl" />
     <None Include="App\GameObjects\Materials\icosahedron2.mtl" />
-    <None Include="App\GameObjects\Objects\6grannik.obj" />
-    <None Include="App\GameObjects\Objects\cylinder.obj" />
-    <None Include="App\GameObjects\Objects\icosahedron2.obj" />
+    <None Include="App\GameObjects\Objects\6grannik.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="App\GameObjects\Objects\cylinder.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="App\GameObjects\Objects\icosahedron2.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="App\GameObjects\Objects\LeftWall.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="App\GameObjects\Objects\oboi1.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="App\GameObjects\Objects\oboi2.obj">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="App\GameObjects\Objects\player.obj">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="App\GameObjects\Objects\RightWall.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="App\GameObjects\Materials\oboi.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="App\GameObjects\Materials\oboi_p1.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="App\GameObjects\Objects\oboi_p1.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="App\GameObjects\potolok.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="App\GameObjects\potolok.obj">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Properties\Settings.settings">
@@ -270,7 +299,13 @@
     <Content Include="App\GameObjects\Images\CocaCola.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="App\GameObjects\Images\oboi.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="App\GameObjects\Images\plotTexture.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App\GameObjects\Images\potolok.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="App\GameObjects\Images\texture.bmp">
