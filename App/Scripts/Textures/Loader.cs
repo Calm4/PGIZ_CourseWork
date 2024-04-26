@@ -196,8 +196,6 @@ namespace Lab01.App.Scripts.Textures
 
             List<Renderer.VertexDataStruct> vertices = new List<Renderer.VertexDataStruct>();
 
-
-
             foreach(var face in currentGroup.Faces)
             {
                 for (int i = face.Count - 1; i >= 0; i--)

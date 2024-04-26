@@ -241,12 +241,18 @@
     <None Include="App\GameObjects\Materials\6grannik.mtl" />
     <None Include="App\GameObjects\Materials\cylinder.mtl" />
     <None Include="App\GameObjects\Materials\icosahedron2.mtl" />
-    <None Include="App\GameObjects\Objects\66grannik.obj">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="App\GameObjects\Objects\6grannik.obj" />
     <None Include="App\GameObjects\Objects\cylinder.obj" />
     <None Include="App\GameObjects\Objects\icosahedron2.obj" />
+    <None Include="App\GameObjects\Objects\LeftWall.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="App\GameObjects\Objects\player.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="App\GameObjects\Objects\RightWall.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

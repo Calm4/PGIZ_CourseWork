@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Lab01.App.Scripts.DirectX;
 using Lab01.App.Scripts.Environment;
 using Lab01.App.Scripts.Textures;
@@ -20,14 +21,18 @@ namespace Lab01.App.Scripts.Game
 
         private const int NUM_LIGHTS = 4;
 
-        private Texture parallelepipedTexture;
+        private Texture parallelepiped1Texture;
+        private Texture parallelepiped2Texture;
         private Texture _sixGrannikTexture;
         private Texture _cylinderTexture;
         private Texture _plotTexture;
+        private Texture _playerTexture;
         private MeshObject _sixGrannik;
-        private MeshObject _parallelepiped;
+        private MeshObject _parallelepiped1;
+        private MeshObject _parallelepiped2;
         private MeshObject _plot;
         private MeshObject _cylinder;
+        private MeshObject _player;
 
         private MeshObject[] _lights = new MeshObject[NUM_LIGHTS];
         private Camera _camera;
@@ -95,7 +100,8 @@ namespace Lab01.App.Scripts.Game
         private BoundingBox _plotCollider;
 
         private BoundingSphere _cylinderCollider;
-        private BoundingBox _parallelepipedCollider;
+        private BoundingBox _parallelepipedCollider1;
+        private BoundingBox _parallelepipedCollider2;
 
         private Ray _cameraRay;
 
@@ -139,25 +145,6 @@ namespace Lab01.App.Scripts.Game
         public Game()
         {
             InvokeInitializers();
-
-            /*InitializeGame();
-
-            InitializeMaterials();
-
-
-            CreateColliders(_loader);
-
-            CreateLights();
-
-
-            InitializeGameObjects(_loader);
-           
-
-            InitializeBrushes();
-
-
-            DisposeLoader(_loader);*/
-            
         }
         private void InvokeInitializers()
         {
@@ -192,51 +179,73 @@ namespace Lab01.App.Scripts.Game
 
         private void InitializeGameObjects(Loader loader)
         {
-            
-
             _plotSize = new Vector2(100.0f, 100.0f);
             _sixGrannikTexture = loader.LoadTextureFromFile("App/GameObjects/Images/6grannik.png", _renderer.AnisotropicSampler);
             _cylinderTexture = loader.LoadTextureFromFile("App/GameObjects/Images/CocaCola.png", _renderer.AnisotropicSampler);
             _plotTexture = loader.LoadTextureFromFile("App/GameObjects/Images/plotTexture.png", _renderer.AnisotropicSampler);
-            parallelepipedTexture = loader.LoadTextureFromFile("App/GameObjects/Images/6grannik.png", _renderer.AnisotropicSampler);
-           
+            parallelepiped1Texture = loader.LoadTextureFromFile("App/GameObjects/Images/plotTexture.png", _renderer.AnisotropicSampler);
+            parallelepiped2Texture = loader.LoadTextureFromFile("App/GameObjects/Images/plotTexture.png", _renderer.AnisotropicSampler);
+            _playerTexture = loader.LoadTextureFromFile("App/GameObjects/Images/CocaCola.png", _renderer.AnisotropicSampler);
+
+            var playerLoaderFactory = new ObjLoaderFactory();
+            var playerLoader = playerLoaderFactory.Create();
+
+            var playerFileStream = new FileStream("player.obj", FileMode.Open);
+            var playerResult = playerLoader.Load(playerFileStream);
+
+            _player = loader.LoadMeshObjectFromObjFile(playerResult, new Vector4(0f, 0f, 0f, 1f), 0f, 0f, 0f, ref _playerTexture, _renderer.AnisotropicSampler);
+            _playerCollider = new BoundingBox(new Vector3(playerResult.Vertices.Min(v => v.X), playerResult.Vertices.Min(v => v.Y), playerResult.Vertices.Min(v => v.Z)) + (Vector3)_player.Position,
+                new Vector3(playerResult.Vertices.Max(v => v.X), playerResult.Vertices.Max(v => v.Y), playerResult.Vertices.Max(v => v.Z)) + (Vector3)_player.Position);
 
             var objLoaderFactory = new ObjLoaderFactory();
             var objLoader = objLoaderFactory.Create();
 
-            var fileStream = new FileStream("6grannik.obj", FileMode.Open);
-            var firstResult = objLoader.Load(fileStream);
+            var FileStream1 = new FileStream("6grannik.obj", FileMode.Open);
+            var Result1 = objLoader.Load(FileStream1);
 
-            _sixGrannik = loader.LoadMeshObjectFromObjFile(firstResult, new Vector4(0.0f, 2.0f, 0.5f, 1.0f), 0f, 0f,
-    0.0f, ref _sixGrannikTexture, _renderer.AnisotropicSampler);
-          
+            _sixGrannik = loader.LoadMeshObjectFromObjFile(Result1, new Vector4(0.0f, 2.0f, 5f, 1.0f), 0f, 0f, 0.0f, ref _sixGrannikTexture, _renderer.AnisotropicSampler);
+
+            _sixGrannikCollider = new BoundingBox(new Vector3(Result1.Vertices.Min(v => v.X), Result1.Vertices.Min(v => v.Y), Result1.Vertices.Min(v => v.Z)) + (Vector3)_sixGrannik.Position,
+                new Vector3(Result1.Vertices.Max(v => v.X), Result1.Vertices.Max(v => v.Y), Result1.Vertices.Max(v => v.Z)) + (Vector3)_sixGrannik.Position);
 
             _plot = loader.MakePlot(new Vector4(0.0f, 0.0f, 0.0f, 1.0f), 0.0f, 0.0f, 0.0f, _plotSize.X, _plotSize.Y,
                 0f, ref _plotCollider);
 
 
-            
+
 
 
             var objLoaderFactory2 = new ObjLoaderFactory();
             var objLoader2 = objLoaderFactory2.Create();
 
-            var secondFileStream = new FileStream("cylinder.obj", FileMode.Open);
-            var secondResult = objLoader2.Load(secondFileStream);
+            var FileStream2 = new FileStream("cylinder.obj", FileMode.Open);
+            var Result2 = objLoader2.Load(FileStream2);
 
-            _cylinder = loader.LoadMeshObjectFromObjFile(secondResult, new Vector4(4f, 2.0f, 0.0f, 1.0f), 0f, 0f,
+            _cylinder = loader.LoadMeshObjectFromObjFile(Result2, new Vector4(4f, 2.0f, 0.0f, 1.0f), 0f, 0f,
                 0.0f, ref _cylinderTexture, _renderer.AnisotropicSampler);
 
             var objLoaderFactory3 = new ObjLoaderFactory();
             var objLoader3 = objLoaderFactory3.Create();
 
-            var thirdFileStream = new FileStream("66grannik.obj", FileMode.Open);
-            var thirdResult = objLoader3.Load(thirdFileStream);
+            var FileStream3 = new FileStream("LeftWall.obj", FileMode.Open);
+            var Result3 = objLoader3.Load(FileStream3);
 
-            _parallelepiped = loader.LoadMeshObjectFromObjFile(thirdResult, new Vector4(0f, 1.0f, 5, 1.0f), 0f, 0f,
-0.0f, ref parallelepipedTexture, _renderer.AnisotropicSampler);
+            _parallelepiped1 = loader.LoadMeshObjectFromObjFile(Result3, new Vector4(-2f, 1.0f, -5, 1.0f), 0f, 0f, 0.0f,
+                ref parallelepiped1Texture, _renderer.AnisotropicSampler);
 
-            _camera = new Camera(new Vector4(0.0f, 1.8f, -5.0f, 1.0f));
+            var objLoaderFactory4 = new ObjLoaderFactory();
+            var objLoader4 = objLoaderFactory4.Create();
+
+            var FileStream4 = new FileStream("RightWall.obj", FileMode.Open);
+            var Result4 = objLoader4.Load(FileStream4);
+
+
+            _parallelepiped2 = loader.LoadMeshObjectFromObjFile(Result4, new Vector4(2f, 0.0f, 5, 1.0f), 0f, 0f, 0.0f,
+                ref parallelepiped2Texture, _renderer.AnisotropicSampler);
+
+            _parallelepipedCollider2 = new BoundingBox(new Vector3(Result4.Vertices.Min(v => v.X), Result4.Vertices.Min(v => v.Y), Result4.Vertices.Min(v => v.Z)) + (Vector3)_parallelepiped2.Position,
+                new Vector3(Result4.Vertices.Max(v => v.X), Result4.Vertices.Max(v => v.Y), Result4.Vertices.Max(v => v.Z)) + (Vector3)_parallelepiped2.Position);
+            _camera = new Camera(new Vector4(_player.Position.X, 1.8f, _player.Position.Z, 1.0f));
             _timeHelper = new TimeHelper();
 
             _cameraRay = new Ray(new Vector3(_camera.Position.X, _camera.Position.Y, _camera.Position.Z),
@@ -245,17 +254,18 @@ namespace Lab01.App.Scripts.Game
         }
         private void CreateColliders(Loader loader)
         {
-            _sixGrannikCollider = new BoundingBox(new Vector3(-1f, 0.0f, 4.5f), new Vector3(1f, 2.0f, 6.5f));
-            _playerCollider = new BoundingBox(new Vector3(-0.25f, 0f, -0.25f), new Vector3(0.25f, 1.8f, 0.25f));
+            //_sixGrannikCollider = new BoundingBox(new Vector3(-1f, 0.0f, 4.5f), new Vector3(1f, 2.0f, 6.5f));
+            //_playerCollider = new BoundingBox(new Vector3(-0.25f, 0f, -0.25f), new Vector3(0.25f, 1.8f, 0.25f));
             _cylinderCollider = new BoundingSphere(new Vector3(_cylinder.Position.X, _cylinder.Position.Y, _cylinder.Position.Z), 1.0f);
-            _parallelepipedCollider = new BoundingBox(new Vector3(-0.5f, 0.0f, 9.5f), new Vector3(0.5f, 2.0f, 19.5f));
+            _parallelepipedCollider1 = new BoundingBox(new Vector3(-10.5f, 0f, -20f), new Vector3(-10f, 4.0f, 20f));
 
-            _colliders.Add(loader.MakeBoxCollider(_sixGrannikCollider, new Vector4(0.0f, 1.0f, -5.0f, 1.0f), 0f, 0f, 0.0f));
+            _colliders.Add(loader.MakeBoxCollider(_sixGrannikCollider, new Vector4(_sixGrannik.Position.X, _sixGrannik.Position.Y, _sixGrannik.Position.Z, 1.0f), 0f, 0f, 0.0f));
             _colliders.Add(loader.MakeBoxCollider(_plotCollider, new Vector4(0.0f, 0.0f, 0.0f, 1.0f), 0f, 0f, 0.0f));
             _colliders.Add(loader.MakeSphereCollider(_cylinderCollider, 0.0f, 0.0f, 0.0f));
-            _colliders.Add(loader.MakeBoxCollider(_playerCollider, new Vector4(0f, 0f, 2f, 1.0f), 0f, 0f, 0.0f));
+            _colliders.Add(loader.MakeBoxCollider(_playerCollider, new Vector4(0f, 0f, 0f, 1.0f), 0f, 0f, 0.0f));
 
-            _colliders.Add(loader.MakeBoxCollider(_parallelepipedCollider, new Vector4(_parallelepiped.Position.X, _parallelepiped.Position.Y, _parallelepiped.Position.Z, 1.0f), 0f, 0f, 0.0f));
+            _colliders.Add(loader.MakeBoxCollider(_parallelepipedCollider1, new Vector4(_parallelepiped1.Position.X, _parallelepiped1.Position.Y, _parallelepiped1.Position.Z, 1.0f), 0f, 0f, 0.0f));
+            _colliders.Add(loader.MakeBoxCollider(_parallelepipedCollider2, new Vector4(_parallelepiped2.Position.X, _parallelepiped2.Position.Y, _parallelepiped2.Position.Z, 1.0f), 0f, 0f, 0.0f));
         }
         private void CreateLights()
         {
@@ -279,15 +289,11 @@ namespace Lab01.App.Scripts.Game
 
             _light.GlobalAmbient = new Vector4(0.5f, 0.5f, 0.5f, 1.0f);
         }
-
         private void RenderFormResizedCallback(object sender, EventArgs e)
         {
             _directX3DGraphics.Resize();
             _camera.Aspect = _renderForm.ClientSize.Width / (float)_renderForm.ClientSize.Height;
         }
-
-      
-
         public void RenderLoopCallBack()
         {
             if (_firstRun)
@@ -299,7 +305,7 @@ namespace Lab01.App.Scripts.Game
             _timeHelper.Update();
             _renderForm.Text = "FPS: " + _timeHelper.FPS.ToString();
 
-            
+
 
             _sixGrannikSpeed = _sixGrannikSpeed - g * _timeHelper.DeltaT;
 
@@ -328,15 +334,6 @@ namespace Lab01.App.Scripts.Game
             {
                 _currentIcosahedronMaterial = _contactingMaterial;
             }
-            
-            if (!_cameraRay.Intersects(ref _sixGrannikCollider))
-            {
-                _currentTetrahedronColliderMaterial = _blackMaterial;
-            }
-            else
-            {
-                _currentTetrahedronColliderMaterial = _rayMaterial;
-            }
 
             if (!_cameraRay.Intersects(ref _sixGrannikCollider))
             {
@@ -347,7 +344,14 @@ namespace Lab01.App.Scripts.Game
                 _currentTetrahedronColliderMaterial = _rayMaterial;
             }
 
-
+            if (!_cameraRay.Intersects(ref _sixGrannikCollider))
+            {
+                _currentTetrahedronColliderMaterial = _blackMaterial;
+            }
+            else
+            {
+                _currentTetrahedronColliderMaterial = _rayMaterial;
+            }
 
             _dxInput.Update();
 
@@ -357,38 +361,50 @@ namespace Lab01.App.Scripts.Game
             _cameraRay.Direction = _camera.GetViewTo();
 
 
-            Vector3 cameraMovement = InputMovement();
+            Vector3 playerMovement = InputMovement();
 
             //_camera.MoveBy(cameraMovement.X, cameraMovement.Y, cameraMovement.Z);
 
-            Vector3 proposedMovement = new Vector3(cameraMovement.X, 0, cameraMovement.Z);
-            BoundingBox proposedPlayerCollider = new BoundingBox(_playerCollider.Minimum + proposedMovement, _playerCollider.Maximum + proposedMovement);
 
-            if (!_sixGrannikCollider.Intersects(ref proposedPlayerCollider) && 
-               (!_cylinderCollider.Intersects(ref proposedPlayerCollider)) && 
-               (!_parallelepipedCollider.Intersects(ref proposedPlayerCollider)))
+            // Попытка перемещения
+            Vector3 attemptedMovement = playerMovement;
+            _playerCollider.Minimum += attemptedMovement;
+            _playerCollider.Maximum += attemptedMovement;
+
+            // Проверка на столкновение
+            if (_sixGrannikCollider.Intersects(ref _playerCollider) ||
+                _cylinderCollider.Intersects(ref _playerCollider) ||
+                _parallelepipedCollider1.Intersects(ref _playerCollider) ||
+                _parallelepipedCollider2.Intersects(ref _playerCollider))
             {
-                _camera.MoveBy(cameraMovement.X, cameraMovement.Y, cameraMovement.Z);
-                _colliders[3].MoveBy(cameraMovement.X, cameraMovement.Y, cameraMovement.Z);
-                _playerCollider = proposedPlayerCollider;
+                // Если произошло столкновение, отменяем перемещение
+                _playerCollider.Minimum -= attemptedMovement;
+                _playerCollider.Maximum -= attemptedMovement;
             }
-           /* if (!_cylinderCollider.Intersects(ref proposedPlayerCollider))
+            else
             {
-                _camera.MoveBy(cameraMovement.X, cameraMovement.Y, cameraMovement.Z);
-                _colliders[3].MoveBy(cameraMovement.X, cameraMovement.Y, cameraMovement.Z);
-                _playerCollider = proposedPlayerCollider;
+                // Если столкновения нет, применяем перемещение
+                _camera.MoveBy(attemptedMovement.X, attemptedMovement.Y, attemptedMovement.Z);
+                _colliders[3].MoveBy(attemptedMovement.X, attemptedMovement.Y, attemptedMovement.Z);
             }
 
-            if (!_parallelepipedCollider.Intersects(ref proposedPlayerCollider))
-            {
-                _camera.MoveBy(cameraMovement.X, cameraMovement.Y, cameraMovement.Z);
-                _colliders[3].MoveBy(cameraMovement.X, cameraMovement.Y, cameraMovement.Z);
-                _playerCollider = proposedPlayerCollider;
-            }*/
+            /* if (!_cylinderCollider.Intersects(ref proposedPlayerCollider))
+             {
+                 _camera.MoveBy(cameraMovement.X, cameraMovement.Y, cameraMovement.Z);
+                 _colliders[3].MoveBy(cameraMovement.X, cameraMovement.Y, cameraMovement.Z);
+                 _playerCollider = proposedPlayerCollider;
+             }
+
+             if (!_parallelepipedCollider.Intersects(ref proposedPlayerCollider))
+             {
+                 _camera.MoveBy(cameraMovement.X, cameraMovement.Y, cameraMovement.Z);
+                 _colliders[3].MoveBy(cameraMovement.X, cameraMovement.Y, cameraMovement.Z);
+                 _playerCollider = proposedPlayerCollider;
+             }*/
 
 
 
-            _cameraRay.Position += cameraMovement;
+            _cameraRay.Position += playerMovement;
 
 
             Vector3 tetrahedronMovement = Vector3.Zero;
@@ -399,33 +415,33 @@ namespace Lab01.App.Scripts.Game
                 _colliders[2].MoveBy(0f, 0.5f, 0f);
                 _cylinderCollider.Center += new Vector3(0f, 0.5f, 0f);
             }
-            
-        
+
+
 
             RenderObjects();
         }
         private Vector3 InputMovement()
         {
-            Vector3 cameraMovement = Vector3.Zero;
+            Vector3 playerMovement = Vector3.Zero;
 
             if (_dxInput.IsKeyPressed(Key.W))
             {
-                cameraMovement += _camera.GetViewForward() * 0.1f;
+                playerMovement += _camera.GetViewForward() * 0.1f;
             }
 
             if (_dxInput.IsKeyPressed(Key.S))
             {
-                cameraMovement -= _camera.GetViewForward() * 0.1f;
+                playerMovement -= _camera.GetViewForward() * 0.1f;
             }
 
             if (_dxInput.IsKeyPressed(Key.A))
             {
-                cameraMovement -= _camera.GetViewRight() * 0.1f;
+                playerMovement -= _camera.GetViewRight() * 0.1f;
             }
 
             if (_dxInput.IsKeyPressed(Key.D))
             {
-                cameraMovement += _camera.GetViewRight() * 0.1f;
+                playerMovement += _camera.GetViewRight() * 0.1f;
             }
             /*   if (_dxInput.IsKeyPressed(Key.Space))
                {
@@ -438,7 +454,7 @@ namespace Lab01.App.Scripts.Game
                }*/
 
             //_camera.MoveBy(cameraMovement.X, cameraMovement.Y, cameraMovement.Z);
-            return cameraMovement;
+            return playerMovement;
         }
         private void InitializeBrushes()
         {
@@ -582,6 +598,10 @@ namespace Lab01.App.Scripts.Game
             _renderer.UpdatePerObjectConstantBuffers(_colliders[4].GetWorldMatrix(), viewMatrix, projectionMatrix);
             _renderer.RenderMeshObject(_colliders[4]);
 
+            _renderer.SetPerObjectConstantBuffer(_currentTetrahedronColliderMaterial);
+            _renderer.UpdatePerObjectConstantBuffers(_colliders[5].GetWorldMatrix(), viewMatrix, projectionMatrix);
+            _renderer.RenderMeshObject(_colliders[5]);
+
             _directX3DGraphics.ChangeDisplayType(SharpDX.Direct3D11.FillMode.Solid);
 
 
@@ -601,6 +621,16 @@ namespace Lab01.App.Scripts.Game
             _renderer.UpdatePerObjectConstantBuffers(_cylinder.GetWorldMatrix(), viewMatrix, projectionMatrix);
             _renderer.SetTexture(_cylinderTexture);
             _renderer.RenderMeshObject(_cylinder);
+
+            _renderer.SetPerObjectConstantBuffer(_currentIcosahedronMaterial);
+            _renderer.UpdatePerObjectConstantBuffers(_parallelepiped1.GetWorldMatrix(), viewMatrix, projectionMatrix);
+            _renderer.SetTexture(parallelepiped1Texture);
+            _renderer.RenderMeshObject(_parallelepiped1);
+
+            _renderer.SetPerObjectConstantBuffer(_currentIcosahedronMaterial);
+            _renderer.UpdatePerObjectConstantBuffers(_parallelepiped2.GetWorldMatrix(), viewMatrix, projectionMatrix);
+            _renderer.SetTexture(parallelepiped2Texture);
+            _renderer.RenderMeshObject(_parallelepiped2);
 
             _renderer.EndRender();
 
@@ -623,19 +653,16 @@ namespace Lab01.App.Scripts.Game
             _directX3DGraphics.D2DRenderTarget.EndDraw();
             _directX3DGraphics.SwapChain.Present(0, PresentFlags.None);
         }
-
         private void CheckPositions()
         {
             var b = _sixGrannik.Position;
             var a = _camera.Position;
             var c = _sixGrannik.Position - _camera.Position;
         }
-
         public void Run()
         {
             RenderLoop.Run(_renderForm, RenderLoopCallBack);
         }
-
         public void Dispose()
         {
             _sixGrannik.Dispose();
