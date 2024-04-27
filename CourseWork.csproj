@@ -212,19 +212,19 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App\Scripts\DirectX\DirectX3DGraphics.cs" />
-    <Compile Include="App\Scripts\DirectX\DXInput.cs" />
-    <Compile Include="App\Scripts\Environment\Camera.cs" />
-    <Compile Include="App\Scripts\Environment\Light.cs" />
-    <Compile Include="App\Scripts\Environment\TimeHelper.cs" />
-    <Compile Include="App\Scripts\Game\Game.cs" />
-    <Compile Include="App\Scripts\Game\Game3DObject.cs" />
-    <Compile Include="App\Scripts\Program.cs" />
-    <Compile Include="App\Scripts\Textures\Loader.cs" />
-    <Compile Include="App\Scripts\Textures\Material.cs" />
-    <Compile Include="App\Scripts\Textures\MeshObject.cs" />
-    <Compile Include="App\Scripts\Textures\Renderer.cs" />
-    <Compile Include="App\Scripts\Textures\Texture.cs" />
+    <Compile Include="Scripts\DirectX\DirectX3DGraphics.cs" />
+    <Compile Include="Scripts\DirectX\DXInput.cs" />
+    <Compile Include="Scripts\Environment\Camera.cs" />
+    <Compile Include="Scripts\Environment\Light.cs" />
+    <Compile Include="Scripts\Environment\TimeHelper.cs" />
+    <Compile Include="Scripts\Game\Game.cs" />
+    <Compile Include="Scripts\Game\Game3DObject.cs" />
+    <Compile Include="Scripts\Program.cs" />
+    <Compile Include="Scripts\Textures\Loader.cs" />
+    <Compile Include="Scripts\Textures\Material.cs" />
+    <Compile Include="Scripts\Textures\MeshObject.cs" />
+    <Compile Include="Scripts\Textures\Renderer.cs" />
+    <Compile Include="Scripts\Textures\Texture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -236,50 +236,119 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="app.manifest" />
-    <None Include="App\Configs\app.config" />
-    <None Include="App\Configs\packages.config" />
-    <None Include="App\GameObjects\Materials\6grannik.mtl">
+    <None Include="bin\Debug\GameObjects\Materials\cylinder.mtl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="App\GameObjects\Materials\cylinder.mtl" />
-    <None Include="App\GameObjects\Materials\icosahedron2.mtl" />
-    <None Include="App\GameObjects\Objects\6grannik.obj">
+    <None Include="bin\Debug\GameObjects\Materials\House.mtl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="App\GameObjects\Objects\cylinder.obj">
+    <None Include="bin\Debug\GameObjects\Materials\carpet.mtl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="App\GameObjects\Objects\icosahedron2.obj">
+    <None Include="bin\Debug\GameObjects\Objects\carpet.obj">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="App\GameObjects\Objects\LeftWall.obj">
+    <None Include="bin\Debug\GameObjects\Objects\House.obj">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="App\GameObjects\Objects\oboi1.obj">
+    <None Include="bin\Debug\GameObjects\Materials\letter.mtl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="App\GameObjects\Objects\oboi2.obj">
+    <None Include="bin\Debug\GameObjects\Objects\letter.obj">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="App\GameObjects\Objects\player.obj">
+    <None Include="bin\Debug\GameObjects\Materials\letterMini.mtl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="App\GameObjects\Objects\RightWall.obj">
+    <None Include="bin\Debug\GameObjects\Objects\letterMini.obj">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="App\GameObjects\Materials\oboi.mtl">
+    <None Include="bin\Debug\GameObjects\Materials\yaschik.mtl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="App\GameObjects\Materials\oboi_p1.mtl">
+    <None Include="bin\Debug\GameObjects\Materials\verx_yaschik.mtl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="App\GameObjects\Objects\oboi_p1.obj">
+    <None Include="bin\Debug\GameObjects\Objects\verx_yaschik.obj">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="App\GameObjects\potolok.mtl">
+    <None Include="bin\Debug\GameObjects\Objects\yaschik.obj">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="App\GameObjects\potolok.obj">
+    <None Include="Configs\app.config" />
+    <None Include="Configs\packages.config" />
+    <None Include="bin\Debug\GameObjects\Objects\66grannik.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Materials\6grannik.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\6grannik.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\CourseWork.exe.config" />
+    <None Include="bin\Debug\GameObjects\Objects\cylinder.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Materials\icosahedron2.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\icosahedron2.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\Lab01.exe.config" />
+    <None Include="bin\Debug\GameObjects\Objects\LeftWall.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Materials\oboi.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\oboi1.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\oboi2.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Materials\oboi_p1.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\oboi_p1.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Materials\oboi_p2.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\oboi_p2.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Materials\oboi_type2.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\oboi_type2.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\player.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Materials\potolok.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\potolok.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Materials\potolok2.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\potolok2.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Materials\prizma6ix.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\prizma6ix.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\RightWall.obj">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Properties\Settings.settings">
@@ -293,24 +362,80 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App\GameObjects\Images\6grannik.png">
+    <Content Include="bin\Debug\GameObjects\Images\6grannik.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="App\GameObjects\Images\CocaCola.png">
+    <Content Include="bin\Debug\CjClutter.ObjLoader.Loader.dll" />
+    <Content Include="bin\Debug\GameObjects\Images\carpet.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="App\GameObjects\Images\oboi.jpg">
+    <Content Include="bin\Debug\GameObjects\Images\CocaCola.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="App\GameObjects\Images\plotTexture.png">
+    <Content Include="bin\Debug\CourseWork.exe" />
+    <Content Include="bin\Debug\CourseWork.pdb" />
+    <Content Include="bin\Debug\GameObjects\Images\doska.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="App\GameObjects\Images\potolok.jpg">
+    <Content Include="bin\Debug\GameObjects\Images\letter.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="App\GameObjects\Images\texture.bmp">
+    <Content Include="bin\Debug\GameObjects\Images\potolok2.jpg" />
+    <Content Include="bin\Debug\GameObjects\Images\stena.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="bin\Debug\GameObjects\Images\verx_yaschik.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\GameObjects\Images\yaschik.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\Lab01.exe" />
+    <Content Include="bin\Debug\Lab01.pdb" />
+    <Content Include="bin\Debug\GameObjects\Images\oboi.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\GameObjects\Images\oboi2.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\pixel.hlsl" />
+    <Content Include="bin\Debug\GameObjects\Images\plotTexture.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\GameObjects\Images\potolok.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\SharpDX.D3DCompiler.dll" />
+    <Content Include="bin\Debug\SharpDX.D3DCompiler.pdb" />
+    <Content Include="bin\Debug\SharpDX.D3DCompiler.xml" />
+    <Content Include="bin\Debug\SharpDX.Desktop.dll" />
+    <Content Include="bin\Debug\SharpDX.Desktop.pdb" />
+    <Content Include="bin\Debug\SharpDX.Desktop.xml" />
+    <Content Include="bin\Debug\SharpDX.Diagnostics.dll" />
+    <Content Include="bin\Debug\SharpDX.Diagnostics.xml" />
+    <Content Include="bin\Debug\SharpDX.Direct2D1.dll" />
+    <Content Include="bin\Debug\SharpDX.Direct2D1.pdb" />
+    <Content Include="bin\Debug\SharpDX.Direct2D1.xml" />
+    <Content Include="bin\Debug\SharpDX.Direct3D11.dll" />
+    <Content Include="bin\Debug\SharpDX.Direct3D11.pdb" />
+    <Content Include="bin\Debug\SharpDX.Direct3D11.xml" />
+    <Content Include="bin\Debug\SharpDX.DirectInput.dll" />
+    <Content Include="bin\Debug\SharpDX.DirectInput.pdb" />
+    <Content Include="bin\Debug\SharpDX.DirectInput.xml" />
+    <Content Include="bin\Debug\SharpDX.dll" />
+    <Content Include="bin\Debug\SharpDX.DXGI.dll" />
+    <Content Include="bin\Debug\SharpDX.DXGI.pdb" />
+    <Content Include="bin\Debug\SharpDX.DXGI.xml" />
+    <Content Include="bin\Debug\SharpDX.Mathematics.dll" />
+    <Content Include="bin\Debug\SharpDX.Mathematics.pdb" />
+    <Content Include="bin\Debug\SharpDX.Mathematics.xml" />
+    <Content Include="bin\Debug\SharpDX.pdb" />
+    <Content Include="bin\Debug\System.Diagnostics.DiagnosticSource.dll" />
+    <Content Include="bin\Debug\System.Diagnostics.DiagnosticSource.xml" />
+    <Content Include="bin\Debug\GameObjects\Images\texture.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\vertex.hlsl" />
     <Content Include="pixel.hlsl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -319,7 +444,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App\Shaders\" />
+    <Folder Include="bin\Release\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
