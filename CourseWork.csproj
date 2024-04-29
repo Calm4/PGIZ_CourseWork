@@ -651,7 +651,9 @@
     <Content Include="bin\Debug\GameObjects\Images\oboi2.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="bin\Debug\pixel.hlsl" />
+    <Content Include="bin\Debug\pixel.hlsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="bin\Debug\GameObjects\Images\plotTexture.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

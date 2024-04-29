@@ -198,3 +198,4 @@ C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\bin\Debug\GameObjects\Obje
 C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\bin\Debug\GameObjects\Images\korobka.png
 C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\bin\Debug\GameObjects\Materials\korobka.mtl
 C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\bin\Debug\GameObjects\Objects\korobka.obj
+C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\bin\Debug\pixel.hlsl

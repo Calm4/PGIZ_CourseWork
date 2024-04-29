@@ -191,8 +191,9 @@ namespace Lab01.App.Scripts.Game
 
         private MaterialProperties _contactingMaterial;
 
-        private MaterialProperties _currentIcosahedronColliderMaterial;
-        private MaterialProperties _currentTetrahedronColliderMaterial;
+        private MaterialProperties _defaultObjectMaterial;
+        private MaterialProperties _changedObjectMaterial;
+        private MaterialProperties _currentObjectMaterial;
 
 
         private MaterialProperties _rayMaterial;
@@ -626,14 +627,7 @@ namespace Lab01.App.Scripts.Game
             _dxInput.Update();
 
 
-            if (!_cameraRay.Intersects(ref _sixGrannikCollider))
-            {
-                _currentTetrahedronColliderMaterial = _blackMaterial;
-            }
-            else
-            {
-                _currentTetrahedronColliderMaterial = _rayMaterial;
-            }
+          
 
             _camera.YawBy(_dxInput.GetMouseDeltaX() * 0.001f);
             _camera.PitchBy(_dxInput.GetMouseDeltaY() * 0.001f);
@@ -702,6 +696,11 @@ namespace Lab01.App.Scripts.Game
 
         private void CheckPlayerInteracts()
         {
+            if (_cameraRay.Intersects(ref _lavochka3Collider))
+            {
+                Debug.WriteLine("Interact with lavochka3");
+            }
+         
             if (_cameraRay.Intersects(ref _letter1Collider) && _dxInput.IsKeyPressed(Key.E))
             {
                 //TODO: сделать текст письма
@@ -720,6 +719,7 @@ namespace Lab01.App.Scripts.Game
             if (_cameraRay.Intersects(ref _letter4Collider) && _dxInput.IsKeyPressed(Key.E))
             {
                 //TODO: сделать текст письма
+
                 Debug.WriteLine("PISMO 4!!! ");
             }
             if (_cameraRay.Intersects(ref _letter5Collider) && _dxInput.IsKeyPressed(Key.E))
@@ -829,13 +829,14 @@ namespace Lab01.App.Scripts.Game
                 Material = new Material
                 {
                     Emmisive = new Vector4(0.0f, 0.0f, 0.0f, 1f),
-                    Ambient = new Vector4(0.5f, 0.5f, 0.5f, 1f),
-                    Diffuse = new Vector4(0.5f, 0.5f, 0.4f, 1.0f),
-                    Specular = new Vector4(0.7f, 0.7f, 0.04f, 1f),
+                    Ambient = new Vector4(0.0f, 0.2f, 0.0f, 1f), // Зеленый оттенок
+                    Diffuse = new Vector4(0.0f, 0.5f, 0.0f, 1.0f), // Зеленый оттенок
+                    Specular = new Vector4(0.0f, 0.7f, 0.0f, 1f), // Зеленый оттенок
                     SpecularPower = 10.0f,
                     UseTexture = 0
                 }
             };
+
 
             _icosahedronMaterial = new MaterialProperties
             {
@@ -880,9 +881,9 @@ namespace Lab01.App.Scripts.Game
 
             _currentIcosahedronMaterial = _icosahedronMaterial;
 
-            _currentIcosahedronColliderMaterial = _floorMaterial;
+            _currentObjectMaterial = _floorMaterial;
 
-            _currentTetrahedronColliderMaterial = _floorMaterial;
+            _currentObjectMaterial = _floorMaterial;
         }
 
         private void RenderObject(Matrix viewMatrix, Matrix projectionMatrix, MeshObject meshObject, Texture objectTexture)
@@ -907,7 +908,7 @@ namespace Lab01.App.Scripts.Game
 
             for (int i = 0; i < _colliders.Count; i++)
             {
-                _renderer.SetPerObjectConstantBuffer(_currentIcosahedronColliderMaterial);
+                _renderer.SetPerObjectConstantBuffer(_defaultObjectMaterial);
                 _renderer.UpdatePerObjectConstantBuffers(_colliders[i].GetWorldMatrix(), viewMatrix, projectionMatrix);
                 _renderer.RenderMeshObject(_colliders[i]);
             }
