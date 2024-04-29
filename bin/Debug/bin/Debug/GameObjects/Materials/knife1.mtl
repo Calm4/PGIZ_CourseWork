@@ -1,0 +1,50 @@
+# Blender 4.1.1 MTL File: 'knife1.blend'
+# www.blender.org
+
+newmtl confinement
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\GameObjects\Images\knife1\confinement\confinement_BaseColor.png
+map_Ns C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\GameObjects\Images\knife1\confinement\confinement_Roughness.png
+map_refl C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\GameObjects\Images\knife1\confinement\confinement_Metallic.png
+map_Bump -bm 1.000000 C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\GameObjects\Images\knife1\confinement\confinement_Normal.png
+
+newmtl lever_down
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\GameObjects\Images\knife1\lever down\lever down.003_BaseColor.png
+map_Ns C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\GameObjects\Images\knife1\lever down\lever down.003_Roughness.png
+map_refl C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\GameObjects\Images\knife1\lever down\lever down.003_Metallic.png
+map_Bump -bm 1.000000 C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\GameObjects\Images\knife1\lever down\lever down.003_Normal.png
+
+newmtl lever_up
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\GameObjects\Images\knife1\lever up\lever up_BaseColor.png
+map_Ns C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\GameObjects\Images\knife1\lever up\lever up_Roughness.png
+map_refl C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\GameObjects\Images\knife1\lever up\lever up_Metallic.png
+map_Bump -bm 1.000000 C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\GameObjects\Images\knife1\lever up\lever up_Normal.png
+
+newmtl the_blade
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\GameObjects\Images\knife1\the blade\the blade.003_BaseColor.png
+map_Ns C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\GameObjects\Images\knife1\the blade\the blade.003_Roughness.png
+map_refl C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\GameObjects\Images\knife1\the blade\the blade.003_Metallic.png
+map_Bump -bm 1.000000 C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\GameObjects\Images\knife1\the blade\the blade.003_Normal.png

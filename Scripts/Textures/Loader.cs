@@ -188,7 +188,7 @@ namespace Lab01.App.Scripts.Textures
             return new MeshObject(_directX3DGraphics, position, yaw, pitch, roll, vertices, indices);
         }
 
-        public MeshObject LoadMeshObjectFromObjFile(LoadResult loadResult, Vector4 position, float yaw, float pitch, float roll, ref Texture texture, SamplerState sampler)
+       /* public MeshObject LoadMeshObjectFromObjFile(LoadResult loadResult, Vector4 position, float yaw, float pitch, float roll, ref Texture texture, SamplerState sampler)
         {
             var currentGroup = loadResult.Groups[0];
 
@@ -220,8 +220,57 @@ namespace Lab01.App.Scripts.Textures
             texture = LoadTextureFromFile(currentGroup.Material.DiffuseTextureMap, sampler);
 
             return new MeshObject(_directX3DGraphics, position, yaw, pitch, roll, vertices.ToArray(), indices.ToArray());
-        }
+        }*/
+        
+         public MeshObject LoadMeshObjectFromObjFile(LoadResult loadResult, Vector4 position, float yaw, float pitch, float roll, ref Texture texture, SamplerState sampler, float sizeMultiplier = 1f)
+                {
+                    var currentGroup = loadResult.Groups[0];
 
+                    List<uint> indices = new List<uint>();
+
+                    List<Renderer.VertexDataStruct> vertices = new List<Renderer.VertexDataStruct>();
+
+                    foreach(var face in currentGroup.Faces)
+                    {
+                        for (int i = face.Count - 1; i >= 0; i--)
+                        {
+                            var vertexPosition = loadResult.Vertices[face[i].VertexIndex - 1] ;
+                            ObjLoader.Loader.Data.VertexData.Texture texturePosition;
+                            if (loadResult.Textures.Count == 0)
+                            {
+                                Random random = new Random();
+                                texturePosition =
+                                    new ObjLoader.Loader.Data.VertexData.Texture(random.NextFloat(0f, 1f),
+                                        random.NextFloat(0f, 1f));
+                            }
+                            else
+                            {
+                                texturePosition = loadResult.Textures[face[i].TextureIndex - 1];
+                            }
+
+                            var normalPosition = loadResult.Normals[face[i].NormalIndex - 1];
+                            //
+                            vertices.Add(new Renderer.VertexDataStruct
+                            {
+                                Position = new Vector4(vertexPosition.X * sizeMultiplier, vertexPosition.Y * sizeMultiplier, vertexPosition.Z * sizeMultiplier, 1.0f),
+                                Tex0 = new Vector2(texturePosition.X, 1.0f - texturePosition.Y),
+                                //Tex0 = new Vector2(random.NextFloat(0f, 1f), random.NextFloat(0f, 1f)),
+                                Normal = new Vector4(normalPosition.X, normalPosition.Y, normalPosition.Z, 1.0f)
+                            });
+                        }
+                    }
+
+                    for (int i = 0; i < vertices.Count; i++)
+                    {
+                        indices.Add((uint)i);
+                    }
+
+                    if(loadResult.Textures.Count != 0)
+                        texture = LoadTextureFromFile(currentGroup.Material.DiffuseTextureMap, sampler);
+
+                    return new MeshObject(_directX3DGraphics, position, yaw, pitch, roll, vertices.ToArray(), indices.ToArray());
+                }
+        
         public MeshObject MakeIcosahedron(Vector4 position, float yaw, float pitch, float roll, ref BoundingSphere boundingSphere)
         {
             MeshObject icosahedron = MakeIcosahedron(position, yaw, pitch, roll);

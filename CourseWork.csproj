@@ -248,10 +248,82 @@
     <None Include="bin\Debug\GameObjects\Objects\carpet.obj">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="bin\Debug\GameObjects\Materials\cube.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Materials\carpet2.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\carpet2.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Materials\carpet3.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\carpet3.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\cube.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\divan.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\divan.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Materials\gorshok.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Materials\divan2.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\divan2.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\gorshok.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="bin\Debug\GameObjects\Objects\House.obj">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="bin\Debug\GameObjects\Materials\letter.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Materials\knife1.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Materials\kartina1.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\kartina1.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Materials\kartina2.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\kartina2.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Materials\kartina3.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\kartina3.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\knife1.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Materials\lavochka.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Materials\korobka.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\korobka.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\lavochka.obj">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="bin\Debug\GameObjects\Objects\letter.obj">
@@ -269,10 +341,103 @@
     <None Include="bin\Debug\GameObjects\Materials\verx_yaschik.mtl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="bin\Debug\GameObjects\Materials\oboiWall.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\oboiWall.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Materials\oboiWall_perp.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\oboiWall_perp.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Materials\oboiWall_perpV2.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\oboiWall_perpV2.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Materials\oboiWall_V2.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\oboiWall_V2.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Materials\plita.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\plita.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Materials\stena.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Materials\rakovina.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\rakovina.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\red_cube.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\red_cube.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Materials\shkaf.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\shkaf.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Materials\shkaf180.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\shkaf180.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\stena.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Materials\stena_perp.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\stena_perp.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Materials\tv.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\tv.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="bin\Debug\GameObjects\Objects\verx_yaschik.obj">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="bin\Debug\GameObjects\Materials\xolodilnik.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\xolodilnik.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\xolodilnik.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="bin\Debug\GameObjects\Objects\yaschik.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Materials\yaschik2.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\yaschik2.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Materials\yaschik_perp.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\yaschik_perp.obj">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Configs\app.config" />
@@ -362,6 +527,53 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Debug\GameObjects\Images\carpet2.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\GameObjects\Images\carpet3.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\GameObjects\Images\divan2.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\GameObjects\Images\doska2.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\GameObjects\Images\floor.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\GameObjects\Images\kartina1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\GameObjects\Images\kartina2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\GameObjects\Images\kartina3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\GameObjects\Images\kirpich.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\GameObjects\Images\knife1\confinement\confinement_BaseColor.png" />
+    <Content Include="bin\Debug\GameObjects\Images\knife1\confinement\confinement_Displacement.png" />
+    <Content Include="bin\Debug\GameObjects\Images\knife1\confinement\confinement_Metallic.png" />
+    <Content Include="bin\Debug\GameObjects\Images\knife1\confinement\confinement_Normal.png" />
+    <Content Include="bin\Debug\GameObjects\Images\knife1\confinement\confinement_Roughness.png" />
+    <Content Include="bin\Debug\GameObjects\Images\knife1\lever down\lever down.003_BaseColor.png" />
+    <Content Include="bin\Debug\GameObjects\Images\knife1\lever down\lever down.003_Displacement.png" />
+    <Content Include="bin\Debug\GameObjects\Images\knife1\lever down\lever down.003_Metallic.png" />
+    <Content Include="bin\Debug\GameObjects\Images\knife1\lever down\lever down.003_Normal.png" />
+    <Content Include="bin\Debug\GameObjects\Images\knife1\lever down\lever down.003_Roughness.png" />
+    <Content Include="bin\Debug\GameObjects\Images\knife1\lever up\lever up_BaseColor.png" />
+    <Content Include="bin\Debug\GameObjects\Images\knife1\lever up\lever up_Displacement.png" />
+    <Content Include="bin\Debug\GameObjects\Images\knife1\lever up\lever up_Metallic.png" />
+    <Content Include="bin\Debug\GameObjects\Images\knife1\lever up\lever up_Normal.png" />
+    <Content Include="bin\Debug\GameObjects\Images\knife1\lever up\lever up_Roughness.png" />
+    <Content Include="bin\Debug\GameObjects\Images\knife1\the blade\the blade.003_BaseColor.png" />
+    <Content Include="bin\Debug\GameObjects\Images\knife1\the blade\the blade.003_Displacement.png" />
+    <Content Include="bin\Debug\GameObjects\Images\knife1\the blade\the blade.003_Metallic.png" />
+    <Content Include="bin\Debug\GameObjects\Images\knife1\the blade\the blade.003_Normal.png" />
+    <Content Include="bin\Debug\GameObjects\Images\knife1\the blade\the blade.003_Roughness.png" />
     <Content Include="bin\Debug\GameObjects\Images\6grannik.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -374,20 +586,61 @@
     </Content>
     <Content Include="bin\Debug\CourseWork.exe" />
     <Content Include="bin\Debug\CourseWork.pdb" />
+    <Content Include="bin\Debug\GameObjects\Images\divan.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="bin\Debug\GameObjects\Images\doska.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\GameObjects\Images\korobka.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="bin\Debug\GameObjects\Images\letter.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="bin\Debug\GameObjects\Images\potolok2.jpg" />
+    <Content Include="bin\Debug\GameObjects\Images\oboi3.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\GameObjects\Images\oboi4.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\GameObjects\Images\oboiGood.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\GameObjects\Images\oboiGoodV2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\GameObjects\Images\plita.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\GameObjects\Images\potolok %282%29.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\GameObjects\Images\potolok2.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\GameObjects\Images\rakovina.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\GameObjects\Images\shkaf.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="bin\Debug\GameObjects\Images\stena.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\GameObjects\Images\tv.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="bin\Debug\GameObjects\Images\verx_yaschik.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="bin\Debug\GameObjects\Images\xolodilnik.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="bin\Debug\GameObjects\Images\yaschik.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\GameObjects\Images\yaschik2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="bin\Debug\Lab01.exe" />
@@ -400,9 +653,6 @@
     </Content>
     <Content Include="bin\Debug\pixel.hlsl" />
     <Content Include="bin\Debug\GameObjects\Images\plotTexture.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="bin\Debug\GameObjects\Images\potolok.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="bin\Debug\SharpDX.D3DCompiler.dll" />
