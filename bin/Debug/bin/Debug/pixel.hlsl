@@ -182,7 +182,7 @@ float4 pixelShader(PixelShaderInput IN) : SV_TARGET
     if (Material.UseTexture)
     {
         texColor = Texture.Sample(Sampler, IN.TexCoord);
-        
+        return texColor;
     }
     else 
     {
