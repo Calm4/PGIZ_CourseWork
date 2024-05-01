@@ -1,4 +1,4 @@
-# Blender 4.1.1 MTL File: 'None'
+# Blender 4.1.1 MTL File: 'kartina5.blend'
 # www.blender.org
 
 newmtl Material
@@ -9,4 +9,4 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd C:/Projects/PGIZ/CourseWork/PGIZ_CourseWork/bin/Debug/GameObjects/Images/xolodilnik.png
+map_Kd C:/Projects/PGIZ/CourseWork/PGIZ_CourseWork/bin/Debug/GameObjects/Images/kartina5_krik.png

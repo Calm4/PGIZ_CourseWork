@@ -217,8 +217,10 @@
     <Compile Include="Scripts\Environment\Camera.cs" />
     <Compile Include="Scripts\Environment\Light.cs" />
     <Compile Include="Scripts\Environment\TimeHelper.cs" />
+    <Compile Include="Scripts\Game\GameMaterials.cs" />
     <Compile Include="Scripts\Game\Game.cs" />
     <Compile Include="Scripts\Game\Game3DObject.cs" />
+    <Compile Include="Scripts\Game\GameObjectsRendering.cs" />
     <Compile Include="Scripts\Program.cs" />
     <Compile Include="Scripts\Textures\Loader.cs" />
     <Compile Include="Scripts\Textures\Material.cs" />
@@ -302,6 +304,12 @@
     <None Include="bin\Debug\GameObjects\Materials\kartina2.mtl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="bin\Debug\GameObjects\Materials\kartina10.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\kartina10.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="bin\Debug\GameObjects\Objects\kartina2.obj">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -309,6 +317,42 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="bin\Debug\GameObjects\Objects\kartina3.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Materials\kartina4.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\kartina4.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Materials\kartina5.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\kartina5.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Materials\kartina6.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\kartina6.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Materials\kartina7.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\kartina7.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Materials\kartina8.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\kartina8.obj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Materials\kartina9.mtl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Debug\GameObjects\Objects\kartina9.obj">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="bin\Debug\GameObjects\Objects\knife1.obj">
@@ -417,9 +461,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="bin\Debug\GameObjects\Materials\xolodilnik.mtl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="bin\Debug\GameObjects\Objects\xolodilnik.mtl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="bin\Debug\GameObjects\Objects\xolodilnik.obj">
@@ -542,13 +583,34 @@
     <Content Include="bin\Debug\GameObjects\Images\floor.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="bin\Debug\GameObjects\Images\kartina1.png">
+    <Content Include="bin\Debug\GameObjects\Images\kartina10_9val.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="bin\Debug\GameObjects\Images\kartina2.png">
+    <Content Include="bin\Debug\GameObjects\Images\kartina1_burlaki.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="bin\Debug\GameObjects\Images\kartina3.png">
+    <Content Include="bin\Debug\GameObjects\Images\kartina2_ytro.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\GameObjects\Images\kartina3_plavanie.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\GameObjects\Images\kartina4_monaliza.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\GameObjects\Images\kartina5_krik.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\GameObjects\Images\kartina6_dozor.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\GameObjects\Images\kartina7_bogatblri.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\GameObjects\Images\kartina8_grachiprileteli.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\GameObjects\Images\kartina9_taynayavechere.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="bin\Debug\GameObjects\Images\kirpich.png">
