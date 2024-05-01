@@ -7,7 +7,7 @@ using Buffer11 = SharpDX.Direct3D11.Buffer;
 
 namespace Lab01.App.Scripts.Textures
 {
-    class MeshObject : Game3DObject, IDisposable
+    public class MeshObject : Game3DObject, IDisposable
     {
         private DirectX3DGraphics _directX3DGraphics;
 

@@ -217,10 +217,15 @@
     <Compile Include="Scripts\Environment\Camera.cs" />
     <Compile Include="Scripts\Environment\Light.cs" />
     <Compile Include="Scripts\Environment\TimeHelper.cs" />
+    <Compile Include="Scripts\Game\GameBrushes.cs" />
+    <Compile Include="Scripts\Game\GameInputs.cs" />
+    <Compile Include="Scripts\Game\GameLights.cs" />
     <Compile Include="Scripts\Game\GameMaterials.cs" />
     <Compile Include="Scripts\Game\Game.cs" />
     <Compile Include="Scripts\Game\Game3DObject.cs" />
     <Compile Include="Scripts\Game\GameObjectsRendering.cs" />
+    <Compile Include="Scripts\Game\GameRender.cs" />
+    <Compile Include="Scripts\Game\GameUI.cs" />
     <Compile Include="Scripts\Program.cs" />
     <Compile Include="Scripts\Textures\Loader.cs" />
     <Compile Include="Scripts\Textures\Material.cs" />

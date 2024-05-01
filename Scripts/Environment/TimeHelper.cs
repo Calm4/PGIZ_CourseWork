@@ -3,7 +3,7 @@ using System.Diagnostics;
 
 namespace Lab01.App.Scripts.Environment
 {
-    class TimeHelper
+    public class TimeHelper
     {
         private Stopwatch _stopwatch;
 

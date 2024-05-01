@@ -1,29 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using Lab01.App.Scripts.DirectX;
+﻿using Lab01.App.Scripts.DirectX;
 using Lab01.App.Scripts.Environment;
 using Lab01.App.Scripts.Textures;
 using ObjLoader.Loader.Loaders;
 using SharpDX;
-using SharpDX.Direct2D1;
 using SharpDX.DirectInput;
 using SharpDX.DirectWrite;
-using SharpDX.DXGI;
-using SharpDX.Windows;
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
-using SharpDX.Mathematics.Interop;
-using Lab01.Scripts;
-using Lab01.Scripts.Game;
 
-namespace Lab01.App.Scripts.Game
+namespace Lab01.Scripts.Game
 {
-    class Game : IDisposable
+    public class GameRender
     {
-        RenderForm _renderForm;
-
         private Texture _kartina1Texture;
         private Texture _kartina2Texture;
         private Texture _kartina3Texture;
@@ -48,6 +42,7 @@ namespace Lab01.App.Scripts.Game
         private Texture _divan1Texture;
         private Texture _divan2Texture;
         private Texture _xolodilnikTexture;
+        private Texture _knifeTexture;
         private Texture _plitaTexture;
         private Texture _rakovinaTexture;
         private Texture _carpetTexture;
@@ -59,16 +54,7 @@ namespace Lab01.App.Scripts.Game
         private Texture _shkafTexture;
         private Texture _lavochkaTexture;
         private Texture _tvTexture;
-        private MeshObject _komod1;
-        private MeshObject _komod2;
-        private MeshObject _lavochka1;
-        private MeshObject _lavochka2;
-        private MeshObject _lavochka3;
-        private MeshObject _lavochka4;
-
-
         private Texture _korobkaTexture;
-        // private Texture _cubikRubikaTexture;
 
         //---------------------------------------------------------------------------------------------------------------------------------------
         private MeshObject _kartina1;
@@ -166,27 +152,12 @@ namespace Lab01.App.Scripts.Game
         private MeshObject _korobka1_12;
         private MeshObject _korobka1_13;
         private MeshObject _korobka1_14;
-
-        private Camera _camera;
-
-        private DirectX3DGraphics _directX3DGraphics;
-        private Renderer _renderer;
-
-        private Bitmap _playerBitmap;
-
-        private DeviceContext _d2dContext;
-
-        private Bitmap1 d2dTarget;
-
-        float _sixGrannikSpeed = 0.0f;
-
-        float _cylinderSpeed = 0.0f;
-
-        const float g = 9.81f;
-
-        private MaterialProperties _rayMaterial;
-
-        private bool _isMap = false;
+        private MeshObject _komod1;
+        private MeshObject _komod2;
+        private MeshObject _lavochka1;
+        private MeshObject _lavochka2;
+        private MeshObject _lavochka3;
+        private MeshObject _lavochka4;
 
         private BoundingBox _playerCollider;
 
@@ -194,9 +165,6 @@ namespace Lab01.App.Scripts.Game
 
         private BoundingBox _plotCollider;
         private BoundingBox _potolokCollider;
-
-        private BoundingSphere _cylinderCollider;
-
 
         private BoundingBox _letter1Collider;
         private BoundingBox _letter2Collider;
@@ -282,30 +250,15 @@ namespace Lab01.App.Scripts.Game
         private BoundingBox _kartina9Collider;
         private BoundingBox _kartina10Collider;
 
-        private string textFromLettersField = "Добро пожаловать!";
+        private Renderer _renderer;
+        private DirectX3DGraphics _directX3DGraphics;
+        private List<MeshObject> _meshObjects;
+        private Loader _loader;
+        private Camera _camera;
+        TimeHelper _timeHelper;
 
-        private string pictureNameField1 = "Бурлаки на Волге";
-        private string pictureNameField2 = "Утро в сосновом лесу";
-        private string pictureNameField3 = "Пуститься в плаванье";
-        private string pictureNameField4 = "Мона Лиза";
-        private string pictureNameField5 = "Крик";
-        private string pictureNameField6 = "Ночной дозор";
-        private string pictureNameField7 = "Богатыри";
-        private string pictureNameField8 = "Грачи прилетели";
-        private string pictureNameField9 = "Тайная вечеря";
-        private string pictureNameField10 = "Девятый вал";
-
-
-        private Color _currentColorPicture1 = Color.White;
-        private Color _currentColorPicture2 = Color.White;
-        private Color _currentColorPicture3 = Color.White;
-        private Color _currentColorPicture4 = Color.White;
-        private Color _currentColorPicture5 = Color.White;
-        private Color _currentColorPicture6 = Color.White;
-        private Color _currentColorPicture7 = Color.White;
-        private Color _currentColorPicture8 = Color.White;
-        private Color _currentColorPicture9 = Color.White;
-        private Color _currentColorPicture10 = Color.White;
+        Vector2 _plotSize;
+        Vector2 _potolokSize;
 
         private TextLayout _helpTextLayout = null;
         private TextLayout _kartina1TextField = null;
@@ -319,195 +272,60 @@ namespace Lab01.App.Scripts.Game
         private TextLayout _kartina9TextField = null;
         private TextLayout _kartina10TextField = null;
 
+        private string textFromLettersField = "Добро пожаловать!";
+
+        private string pictureNameField1 = "Бурлаки на Волге";
+        private string pictureNameField2 = "Утро в сосновом лесу";
+        private string pictureNameField3 = "Пуститься в плаванье";
+        private string pictureNameField4 = "Мона Лиза";
+        private string pictureNameField5 = "Крик";
+        private string pictureNameField6 = "Ночной дозор";
+        private string pictureNameField7 = "Богатыри";
+        private string pictureNameField8 = "Грачи прилетели";
+        private string pictureNameField9 = "Тайная вечеря";
+        private string pictureNameField10 = "Девятый вал";
+
+        private Color _currentColorPicture1 = Color.White;
+        private Color _currentColorPicture2 = Color.White;
+        private Color _currentColorPicture3 = Color.White;
+        private Color _currentColorPicture4 = Color.White;
+        private Color _currentColorPicture5 = Color.White;
+        private Color _currentColorPicture6 = Color.White;
+        private Color _currentColorPicture7 = Color.White;
+        private Color _currentColorPicture8 = Color.White;
+        private Color _currentColorPicture9 = Color.White;
+        private Color _currentColorPicture10 = Color.White;
+
         private TextFormat _testTextFormat;
         private TextFormat _picturesTextFormat;
-
-        private Ray _cameraRay;
-
-        private bool _firstRun = true;
-
-        List<MeshObject> _meshObjects = new List<MeshObject>();
-        List<BoundingBox> _colliders = new List<BoundingBox>();
-
-        Vector2 _plotSize;
-
-        private float _textDisplayTime = 0f;
-        private const float TextDisplayDuration = 3f;
 
         private const string GameObjectsPath = "GameObjects/";
         private const string ImagesPath = GameObjectsPath + "Images/";
         private const string ObjectsPath = GameObjectsPath + "Objects/";
 
-        TimeHelper _timeHelper;
-        DXInput _dxInput;
-        Loader _loader;
+        private float _textDisplayTime = 0f;
+        private const float TextDisplayDuration = 3f;
 
-        public Game()
+        private Ray _cameraRay;
+        List<BoundingBox> _colliders = new List<BoundingBox>();
+
+
+        public GameRender(Renderer renderer, DirectX3DGraphics directX3DGraphics, List<MeshObject> meshObjects, Loader loader, Camera camera, TimeHelper timeHelper)
         {
-            InvokeInitializers();
-        }
-
-        private void DrawHUD()
-        {
-            _testTextFormat = new TextFormat(_directX3DGraphics.FactoryDWrite, "Calibri", 28)
-            {
-                TextAlignment = SharpDX.DirectWrite.TextAlignment.Center,
-                ParagraphAlignment = ParagraphAlignment.Center,
-            };
-            _picturesTextFormat = new TextFormat(_directX3DGraphics.FactoryDWrite, "Calibri", FontWeight.Bold, FontStyle.Normal, 24)
-            {
-                TextAlignment = SharpDX.DirectWrite.TextAlignment.Center,
-                ParagraphAlignment = ParagraphAlignment.Center,
-            };
-            _directX3DGraphics.D2DRenderTarget.TextAntialiasMode = SharpDX.Direct2D1.TextAntialiasMode.Cleartype;
-
-            InitializeUIText();
+            _renderer = renderer;
+            _directX3DGraphics = directX3DGraphics;
+            _meshObjects = meshObjects;
+            _loader = loader;
+            _camera = camera;
+            _timeHelper = timeHelper;
 
 
 
-            _directX3DGraphics.D2DRenderTarget.BeginDraw();
-
-            DrawUIRectangle();
-            DrawUIText();
-
-
-            _directX3DGraphics.D2DRenderTarget.EndDraw();
-
-            _directX3DGraphics.SwapChain.Present(0, PresentFlags.None);
-        }
-        private void DrawUIRectangle()
-        {
-            float leftMargin = _renderForm.Width * 0.15f;
-            float rightMargin = _renderForm.Width * 0.85f;
-            float rectangleHeight = 300;
-            float y = _renderForm.Height - rectangleHeight;
-
-            _directX3DGraphics.D2DRenderTarget.FillRectangle(
-                new SharpDX.Mathematics.Interop.RawRectangleF(leftMargin, y, rightMargin, y + rectangleHeight),
-                GameBrushes.semiTransparentUIBrush
-            );
-        }
-        private void InitializeUIText()
-        {
-            _helpTextLayout = new TextLayout(
-               _directX3DGraphics.FactoryDWrite,
-               textFromLettersField,
-               _testTextFormat,
-               _directX3DGraphics.D2DRenderTarget.Size.Width,
-               _directX3DGraphics.D2DRenderTarget.Size.Height
-           );
-
-            _kartina1TextField = new TextLayout(
-               _directX3DGraphics.FactoryDWrite,
-               pictureNameField1,
-               _picturesTextFormat,
-               _directX3DGraphics.D2DRenderTarget.Size.Width,
-               _directX3DGraphics.D2DRenderTarget.Size.Height
-           );
-            _kartina2TextField = new TextLayout(
-              _directX3DGraphics.FactoryDWrite,
-              pictureNameField2,
-              _picturesTextFormat,
-              _directX3DGraphics.D2DRenderTarget.Size.Width,
-              _directX3DGraphics.D2DRenderTarget.Size.Height
-          );
-            _kartina3TextField = new TextLayout(
-              _directX3DGraphics.FactoryDWrite,
-              pictureNameField3,
-              _picturesTextFormat,
-              _directX3DGraphics.D2DRenderTarget.Size.Width,
-              _directX3DGraphics.D2DRenderTarget.Size.Height
-          );
-            _kartina4TextField = new TextLayout(
-              _directX3DGraphics.FactoryDWrite,
-              pictureNameField4,
-              _picturesTextFormat,
-              _directX3DGraphics.D2DRenderTarget.Size.Width,
-              _directX3DGraphics.D2DRenderTarget.Size.Height
-          );
-            _kartina5TextField = new TextLayout(
-              _directX3DGraphics.FactoryDWrite,
-              pictureNameField5,
-              _picturesTextFormat,
-              _directX3DGraphics.D2DRenderTarget.Size.Width,
-              _directX3DGraphics.D2DRenderTarget.Size.Height
-          );
-            _kartina6TextField = new TextLayout(
-              _directX3DGraphics.FactoryDWrite,
-              pictureNameField6,
-              _picturesTextFormat,
-              _directX3DGraphics.D2DRenderTarget.Size.Width,
-              _directX3DGraphics.D2DRenderTarget.Size.Height
-          );
-            _kartina7TextField = new TextLayout(
-              _directX3DGraphics.FactoryDWrite,
-              pictureNameField7,
-              _picturesTextFormat,
-              _directX3DGraphics.D2DRenderTarget.Size.Width,
-              _directX3DGraphics.D2DRenderTarget.Size.Height
-          );
-            _kartina8TextField = new TextLayout(
-              _directX3DGraphics.FactoryDWrite,
-              pictureNameField8,
-              _picturesTextFormat,
-              _directX3DGraphics.D2DRenderTarget.Size.Width,
-              _directX3DGraphics.D2DRenderTarget.Size.Height
-          );
-            _kartina9TextField = new TextLayout(
-              _directX3DGraphics.FactoryDWrite,
-              pictureNameField9,
-              _picturesTextFormat,
-              _directX3DGraphics.D2DRenderTarget.Size.Width,
-              _directX3DGraphics.D2DRenderTarget.Size.Height
-          );
-            _kartina10TextField = new TextLayout(
-              _directX3DGraphics.FactoryDWrite,
-              pictureNameField10,
-              _picturesTextFormat,
-              _directX3DGraphics.D2DRenderTarget.Size.Width,
-              _directX3DGraphics.D2DRenderTarget.Size.Height
-          );
-        }
-
-        private void DrawUIText()
-        {
-            _directX3DGraphics.D2DRenderTarget.DrawTextLayout(new Vector2(0, 0), _helpTextLayout, new SolidColorBrush(_directX3DGraphics.D2DRenderTarget, Color.White));
-
-            _directX3DGraphics.D2DRenderTarget.DrawTextLayout(new Vector2(-500, 300), _kartina1TextField, new SolidColorBrush(_directX3DGraphics.D2DRenderTarget, _currentColorPicture1));
-            _directX3DGraphics.D2DRenderTarget.DrawTextLayout(new Vector2(-250, 300), _kartina2TextField, new SolidColorBrush(_directX3DGraphics.D2DRenderTarget, _currentColorPicture2));
-            _directX3DGraphics.D2DRenderTarget.DrawTextLayout(new Vector2(0, 300), _kartina3TextField, new SolidColorBrush(_directX3DGraphics.D2DRenderTarget, _currentColorPicture3));
-            _directX3DGraphics.D2DRenderTarget.DrawTextLayout(new Vector2(250, 300), _kartina4TextField, new SolidColorBrush(_directX3DGraphics.D2DRenderTarget, _currentColorPicture4));
-            _directX3DGraphics.D2DRenderTarget.DrawTextLayout(new Vector2(500, 300), _kartina5TextField, new SolidColorBrush(_directX3DGraphics.D2DRenderTarget, _currentColorPicture5));
-            _directX3DGraphics.D2DRenderTarget.DrawTextLayout(new Vector2(-500, 450), _kartina6TextField, new SolidColorBrush(_directX3DGraphics.D2DRenderTarget, _currentColorPicture6));
-            _directX3DGraphics.D2DRenderTarget.DrawTextLayout(new Vector2(-250, 450), _kartina7TextField, new SolidColorBrush(_directX3DGraphics.D2DRenderTarget, _currentColorPicture7));
-            _directX3DGraphics.D2DRenderTarget.DrawTextLayout(new Vector2(0, 450), _kartina8TextField, new SolidColorBrush(_directX3DGraphics.D2DRenderTarget, _currentColorPicture8));
-            _directX3DGraphics.D2DRenderTarget.DrawTextLayout(new Vector2(250, 450), _kartina9TextField, new SolidColorBrush(_directX3DGraphics.D2DRenderTarget, _currentColorPicture9));
-            _directX3DGraphics.D2DRenderTarget.DrawTextLayout(new Vector2(500, 450), _kartina10TextField, new SolidColorBrush(_directX3DGraphics.D2DRenderTarget, _currentColorPicture10));
-        }
-        private void InvokeInitializers()
-        {
-            InitializeGame();
-            GameMaterials.InitializeMaterials();
-            GameLights.CreateLights();
-
-            InitializeTextures(_loader);
             InitializeGameObjects(_loader);
             InitializeColliders();
-
-            GameBrushes.InitializeBrushes(_directX3DGraphics);
-
-            DisposeLoader(_loader);
+            InitializeTextures(_loader);
         }
-        private void InitializeGame()
-        {
-            _renderForm = new RenderForm();
-            _renderForm.UserResized += RenderFormResizedCallback;
 
-            _directX3DGraphics = new DirectX3DGraphics(_renderForm);
-            _renderer = new Renderer(_directX3DGraphics);
-            _renderer.CreateConstantBuffers();
-            _loader = new Loader(_directX3DGraphics);
-        }
         private void InitializeTextures(Loader loader)
         {
             _sixGrannikTexture = LoadTexture(loader, "6grannik.png");
@@ -535,6 +353,7 @@ namespace Lab01.App.Scripts.Game
             _tvTexture = LoadTexture(loader, "tv.jpg");
             _korobkaTexture = LoadTexture(loader, "korobka.png");
 
+
             _kartina1Texture = LoadTexture(loader, "kartina1_burlaki.png");
             _kartina2Texture = LoadTexture(loader, "kartina2_ytro.png");
             _kartina3Texture = LoadTexture(loader, "kartina3_plavanie.png");
@@ -546,9 +365,15 @@ namespace Lab01.App.Scripts.Game
             _kartina9Texture = LoadTexture(loader, "kartina9_taynayavechere.png");
             _kartina10Texture = LoadTexture(loader, "kartina10_9val.png");
         }
+        private Texture LoadTexture(Loader loader, string fileName)
+        {
+            return loader.LoadTextureFromFile(ImagesPath + fileName, _renderer.AnisotropicSampler);
+        }
         private void InitializeColliders()
         {
             _colliders.Add(_sixGrannikCollider);
+            //_colliders.Add(_plotCollider);
+            //_colliders.Add(_potolokCollider);
 
             _colliders.Add(_letter1Collider);
             _colliders.Add(_letter2Collider);
@@ -759,10 +584,7 @@ namespace Lab01.App.Scripts.Game
             _timeHelper = new TimeHelper();
             _cameraRay = new Ray(new Vector3(_camera.Position.X, _camera.Position.Y, _camera.Position.Z), _camera.GetViewTo());
         }
-        private Texture LoadTexture(Loader loader, string fileName)
-        {
-            return loader.LoadTextureFromFile(ImagesPath + fileName, _renderer.AnisotropicSampler);
-        }
+
         private MeshObject LoadObjectWithCollider(Loader loader, string fileName, Vector4 position, ref Texture texture, out BoundingBox collider)
         {
             var objLoaderFactory = new ObjLoaderFactory();
@@ -790,54 +612,18 @@ namespace Lab01.App.Scripts.Game
 
             return meshObject;
         }
-        private void RenderFormResizedCallback(object sender, EventArgs e)
+
+        private void RenderObject(Matrix viewMatrix, Matrix projectionMatrix, MeshObject meshObject, Texture objectTexture)
         {
-            _directX3DGraphics.Resize();
-            _camera.Aspect = _renderForm.ClientSize.Width / (float)_renderForm.ClientSize.Height;
+            _renderer.SetPerObjectConstantBuffer(GameMaterials.CurrentTetrahedronMaterial);
+            _renderer.UpdatePerObjectConstantBuffers(meshObject.GetWorldMatrix(), viewMatrix, projectionMatrix);
+            _renderer.SetTexture(objectTexture);
+            _renderer.RenderMeshObject(meshObject);
         }
-        public void RenderLoopCallBack()
+
+        public void CheckPlayerIntersects(DXInput dxInput)
         {
-            if (_firstRun)
-            {
-                RenderFormResizedCallback(this, EventArgs.Empty);
-                _firstRun = false;
-            }
-
-            _timeHelper.Update();
-            _renderForm.Text = "FPS: " + _timeHelper.FPS.ToString();
-
-            _dxInput.Update();
-
-            _camera.YawBy(_dxInput.GetMouseDeltaX() * 0.001f);
-            _camera.PitchBy(_dxInput.GetMouseDeltaY() * 0.001f);
-
-            _cameraRay.Direction = _camera.GetViewTo();
-
-            CheckPlayerIntersects();
-
-            if (!string.IsNullOrEmpty(textFromLettersField))
-            {
-                _textDisplayTime += _timeHelper.DeltaT;
-                Debug.WriteLine(_textDisplayTime);
-
-                if (_textDisplayTime >= TextDisplayDuration)
-                {
-                    textFromLettersField = string.Empty;
-                    _textDisplayTime = 0f;
-                }
-            }
-
-            CheckPlayerInteracts();
-
-            RenderObjects();
-
-            DrawHUD();
-
-            _renderer.EndRender();
-        }
-        private void CheckPlayerIntersects()
-        {
-            Vector3 playerMovement = InputMovement();
+            Vector3 playerMovement = InputMovement(dxInput);
 
             Vector3 attemptedMovement = playerMovement;
             _playerCollider.Minimum += attemptedMovement;
@@ -860,39 +646,44 @@ namespace Lab01.App.Scripts.Game
 
             _cameraRay.Position += playerMovement;
         }
-
-        private void CheckPlayerInteracts()
+        public void CheckPlayerInteracts(DXInput dxInput)
         {
-            if (_cameraRay.Intersects(ref _letter1Collider) && _dxInput.IsKeyPressed(Key.E))
+           /* if (_cameraRay.Intersects(ref _lavochka3Collider))
+            {
+                textFromLettersField = "Interact with lavochka3";
+                Debug.WriteLine("Interact with lavochka3");
+            }*/
+
+
+            if (_cameraRay.Intersects(ref _letter1Collider) && dxInput.IsKeyPressed(Key.E))
             {
                 Debug.WriteLine("PISMO 1!!! ");
                 textFromLettersField = "В гардеробной можно найти трех накаченный мужичков!";
-                _textDisplayTime = 0f; // обнуляем таймер при обновлении текста
+                _textDisplayTime = 0f; 
             }
-            if (_cameraRay.Intersects(ref _letter2Collider) && _dxInput.IsKeyPressed(Key.E))
+            if (_cameraRay.Intersects(ref _letter2Collider) && dxInput.IsKeyPressed(Key.E))
             {
                 Debug.WriteLine("PISMO 2!!! ");
                 textFromLettersField = "В комнате которую еще не обустроили должны были остаться картины!";
-                _textDisplayTime = 0f; // обнуляем таймер при обновлении текста
+                _textDisplayTime = 0f; 
             }
-            if (_cameraRay.Intersects(ref _letter3Collider) && _dxInput.IsKeyPressed(Key.E))
+            if (_cameraRay.Intersects(ref _letter3Collider) && dxInput.IsKeyPressed(Key.E))
             {
                 Debug.WriteLine("PISMO 3!!! ");
                 textFromLettersField = "В зале были пустые стены, поэтому их решили украсить картинами!";
-                _textDisplayTime = 0f; // обнуляем таймер при обновлении текста
+                _textDisplayTime = 0f; 
             }
-            if (_cameraRay.Intersects(ref _letter4Collider) && _dxInput.IsKeyPressed(Key.E))
+            if (_cameraRay.Intersects(ref _letter4Collider) && dxInput.IsKeyPressed(Key.E))
             {
                 Debug.WriteLine("PISMO 4!!! ");
                 textFromLettersField = "С дивана хорошо долнжо быть видно картину на которой чуствуется страх!";
-                //_currentColor = Color.Green; // Изменяем цвет текста на зеленый
-                _textDisplayTime = 0f; // обнуляем таймер при обновлении текста
+                _textDisplayTime = 0f; 
             }
-            if (_cameraRay.Intersects(ref _letter5Collider) && _dxInput.IsKeyPressed(Key.E))
+            if (_cameraRay.Intersects(ref _letter5Collider) && dxInput.IsKeyPressed(Key.E))
             {
                 Debug.WriteLine("PISMO 5!!! ");
                 textFromLettersField = "На кухне возле холодильника спряталась сладкоежка!";
-                _textDisplayTime = 0f; // обнуляем таймер при обновлении текста
+                _textDisplayTime = 0f; 
             }
             if (_currentColorPicture1 == Color.Green && _currentColorPicture2 == Color.Green && _currentColorPicture3 == Color.Green && _currentColorPicture4 == Color.Green && _currentColorPicture5 == Color.Green &&
                 _currentColorPicture6 == Color.Green && _currentColorPicture7 == Color.Green && _currentColorPicture8 == Color.Green && _currentColorPicture9 == Color.Green && _currentColorPicture10 == Color.Green)
@@ -900,68 +691,73 @@ namespace Lab01.App.Scripts.Game
                 textFromLettersField = "Ура вы нашли все картины!";
             }
 
-            if (_cameraRay.Intersects(ref _kartina1Collider) && _dxInput.IsKeyPressed(Key.E))
+            if (_cameraRay.Intersects(ref _kartina1Collider) && dxInput.IsKeyPressed(Key.E))
             {
                 _currentColorPicture1 = Color.Green;
             }
-            if (_cameraRay.Intersects(ref _kartina2Collider) && _dxInput.IsKeyPressed(Key.E))
+            if (_cameraRay.Intersects(ref _kartina2Collider) && dxInput.IsKeyPressed(Key.E))
             {
                 _currentColorPicture2 = Color.Green;
             }
-            if (_cameraRay.Intersects(ref _kartina3Collider) && _dxInput.IsKeyPressed(Key.E))
+            if (_cameraRay.Intersects(ref _kartina3Collider) && dxInput.IsKeyPressed(Key.E))
             {
                 _currentColorPicture3 = Color.Green;
             }
-            if (_cameraRay.Intersects(ref _kartina4Collider) && _dxInput.IsKeyPressed(Key.E))
+            if (_cameraRay.Intersects(ref _kartina4Collider) && dxInput.IsKeyPressed(Key.E))
             {
                 _currentColorPicture4 = Color.Green;
             }
-            if (_cameraRay.Intersects(ref _kartina5Collider) && _dxInput.IsKeyPressed(Key.E))
+            if (_cameraRay.Intersects(ref _kartina5Collider) && dxInput.IsKeyPressed(Key.E))
             {
                 _currentColorPicture5 = Color.Green;
             }
-            if (_cameraRay.Intersects(ref _kartina6Collider) && _dxInput.IsKeyPressed(Key.E))
+            if (_cameraRay.Intersects(ref _kartina6Collider) && dxInput.IsKeyPressed(Key.E))
             {
                 _currentColorPicture6 = Color.Green;
             }
-            if (_cameraRay.Intersects(ref _kartina7Collider) && _dxInput.IsKeyPressed(Key.E))
+            if (_cameraRay.Intersects(ref _kartina7Collider) && dxInput.IsKeyPressed(Key.E))
             {
                 _currentColorPicture7 = Color.Green;
             }
-            if (_cameraRay.Intersects(ref _kartina8Collider) && _dxInput.IsKeyPressed(Key.E))
+            if (_cameraRay.Intersects(ref _kartina8Collider) && dxInput.IsKeyPressed(Key.E))
             {
                 _currentColorPicture8 = Color.Green;
             }
-            if (_cameraRay.Intersects(ref _kartina9Collider) && _dxInput.IsKeyPressed(Key.E))
+            if (_cameraRay.Intersects(ref _kartina9Collider) && dxInput.IsKeyPressed(Key.E))
             {
                 _currentColorPicture9 = Color.Green;
             }
-            if (_cameraRay.Intersects(ref _kartina10Collider) && _dxInput.IsKeyPressed(Key.E))
+            if (_cameraRay.Intersects(ref _kartina10Collider) && dxInput.IsKeyPressed(Key.E))
             {
                 _currentColorPicture10 = Color.Green;
             }
+            /*if(_lavochka3Collider.Intersects(ref _playerCollider))
+            {
+                Debug.WriteLine("Игрок взаимодействует с объектом lavochka3Collider");
+            }*/
+            
         }
 
-        private Vector3 InputMovement()
+        private Vector3 InputMovement(DXInput dxInput)
         {
             Vector3 playerMovement = Vector3.Zero;
 
-            if (_dxInput.IsKeyPressed(Key.W))
+            if (dxInput.IsKeyPressed(Key.W))
             {
                 playerMovement += _camera.GetViewForward() * 0.1f;
             }
 
-            if (_dxInput.IsKeyPressed(Key.S))
+            if (dxInput.IsKeyPressed(Key.S))
             {
                 playerMovement -= _camera.GetViewForward() * 0.1f;
             }
 
-            if (_dxInput.IsKeyPressed(Key.A))
+            if (dxInput.IsKeyPressed(Key.A))
             {
                 playerMovement -= _camera.GetViewRight() * 0.1f;
             }
 
-            if (_dxInput.IsKeyPressed(Key.D))
+            if (dxInput.IsKeyPressed(Key.D))
             {
                 playerMovement += _camera.GetViewRight() * 0.1f;
             }
@@ -969,19 +765,11 @@ namespace Lab01.App.Scripts.Game
             return playerMovement;
         }
 
-        private void RenderObject(Matrix viewMatrix, Matrix projectionMatrix, MeshObject meshObject, Texture objectTexture)
-        {
-            _renderer.SetPerObjectConstantBuffer(GameMaterials.CurrentTetrahedronMaterial);
-            _renderer.UpdatePerObjectConstantBuffers(meshObject.GetWorldMatrix(), viewMatrix, projectionMatrix);
-            _renderer.SetTexture(objectTexture);
-            _renderer.RenderMeshObject(meshObject);
-        }
-        private void RenderObjects()
+        public void RenderObjects(Camera _camera, DirectX3DGraphics _directX3DGraphics)
         {
             Matrix viewMatrix = _camera.GetViewMatrix();
             Matrix projectionMatrix = _camera.GetProjectionMatrix();
             GameLights.Light.EyePosition = _camera.Position;
-
             _renderer.BeginRender();
 
             _renderer.SetLightConstantBuffer(GameLights.Light);
@@ -1105,28 +893,6 @@ namespace Lab01.App.Scripts.Game
             RenderObject(viewMatrix, projectionMatrix, _kartina8, _kartina8Texture);
             RenderObject(viewMatrix, projectionMatrix, _kartina9, _kartina9Texture);
             RenderObject(viewMatrix, projectionMatrix, _kartina10, _kartina10Texture);
-        }
-        public void Run()
-        {
-            RenderLoop.Run(_renderForm, RenderLoopCallBack);
-        }
-
-        private void DisposeLoader(Loader loader)
-        {
-            loader.Dispose();
-            loader = null;
-            _dxInput = new DXInput(_renderForm.Handle);
-        }
-        public void Dispose()
-        {
-            _sixGrannik.Dispose();
-            _sixGrannikTexture.Dispose();
-            _plot.Dispose();
-            _potolok.Dispose();
-            _renderer.Dispose();
-            _directX3DGraphics.Dispose();
-            _helpTextLayout.Dispose();
-            _testTextFormat.Dispose();
         }
     }
 }

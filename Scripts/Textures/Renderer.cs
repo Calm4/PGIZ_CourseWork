@@ -12,7 +12,7 @@ using Device11 = SharpDX.Direct3D11.Device;
 
 namespace Lab01.App.Scripts.Textures
 {
-    class Renderer : IDisposable
+    public class Renderer : IDisposable
     {
         [StructLayout(LayoutKind.Sequential)]
         public struct VertexDataStruct

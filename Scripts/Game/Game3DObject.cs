@@ -2,7 +2,7 @@
 
 namespace Lab01.App.Scripts.Game
 {
-    class Game3DObject
+    public class Game3DObject
     {
         internal Vector4 _position;
         public Vector4 Position { get => _position; }

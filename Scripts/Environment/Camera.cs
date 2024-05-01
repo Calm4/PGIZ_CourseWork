@@ -3,7 +3,7 @@ using SharpDX;
 
 namespace Lab01.App.Scripts.Environment
 {
-    class Camera : Game3DObject
+    public class Camera : Game3DObject
     {
         private float _fovY;
         public float FOVY { get => _fovY; set => _fovY = value; }

@@ -11,7 +11,7 @@ using Device11 = SharpDX.Direct3D11.Device;
 
 namespace Lab01.App.Scripts.DirectX
 {
-    class DirectX3DGraphics : IDisposable
+    public class DirectX3DGraphics : IDisposable
     {
         private RenderForm _renderForm;
         public RenderForm RenderForm { get => _renderForm; }

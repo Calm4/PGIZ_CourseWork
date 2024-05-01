@@ -4,7 +4,7 @@ using SharpDX.Direct3D11;
 
 namespace Lab01.App.Scripts.Textures
 {
-    class Texture : IDisposable
+    public class Texture : IDisposable
     {
         private Texture2D _textureObject;
         public Texture2D TextureObject { get => _textureObject; }

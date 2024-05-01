@@ -4,7 +4,7 @@ using SharpDX.DirectInput;
 
 namespace Lab01.App.Scripts.DirectX
 {
-    internal class DXInput : IDisposable
+    public class DXInput : IDisposable
     {
         private DirectInput _directInput;
 
@@ -16,8 +16,6 @@ namespace Lab01.App.Scripts.DirectX
         private MouseState _currentMouseState;
         private MouseState _previousMouseState;
         private Point _currentMouse;
-
-        private bool _firstRun = true;
 
         public DXInput(IntPtr windowHandle)
         {
