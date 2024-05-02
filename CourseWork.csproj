@@ -47,7 +47,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="SharpDX, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
-      <HintPath>packages\SharpDX.4.2.0\lib\net40\SharpDX.dll</HintPath>
+      <HintPath>packages\SharpDX.4.2.0\lib\net45\SharpDX.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="SharpDX.D3DCompiler, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
       <HintPath>packages\SharpDX.D3DCompiler.4.2.0\lib\net40\SharpDX.D3DCompiler.dll</HintPath>
@@ -72,6 +73,9 @@
     </Reference>
     <Reference Include="SharpDX.Mathematics, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
       <HintPath>packages\SharpDX.Mathematics.4.2.0\lib\net40\SharpDX.Mathematics.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.XAudio2, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>packages\SharpDX.XAudio2.4.2.0\lib\net45\SharpDX.XAudio2.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.AppContext, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -225,6 +229,7 @@
     <Compile Include="Scripts\Game\Game3DObject.cs" />
     <Compile Include="Scripts\Game\GameObjectsRendering.cs" />
     <Compile Include="Scripts\Game\GameRender.cs" />
+    <Compile Include="Scripts\Game\GameSound.cs" />
     <Compile Include="Scripts\Game\GameUI.cs" />
     <Compile Include="Scripts\Program.cs" />
     <Compile Include="Scripts\Textures\Loader.cs" />
@@ -562,6 +567,7 @@
     <None Include="bin\Debug\GameObjects\Objects\RightWall.obj">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -573,6 +579,25 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Debug\GameObjects\Audio\ElevatorMusic.mp3" />
+    <Content Include="bin\Debug\GameObjects\Audio\ElevatorMusic.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\GameObjects\Audio\GameWon.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\GameObjects\Audio\NaxodKartina.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\GameObjects\Audio\NaxodKartina.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\GameObjects\Audio\PencilSound.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\GameObjects\Audio\PencilSound.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="bin\Debug\GameObjects\Images\carpet2.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

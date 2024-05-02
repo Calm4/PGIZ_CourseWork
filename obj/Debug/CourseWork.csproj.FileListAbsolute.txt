@@ -219,3 +219,12 @@ C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\bin\Debug\GameObjects\Mate
 C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\bin\Debug\GameObjects\Objects\kartina8.obj
 C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\bin\Debug\GameObjects\Materials\kartina9.mtl
 C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\bin\Debug\GameObjects\Objects\kartina9.obj
+C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\bin\Debug\GameObjects\Audio\ElevatorMusic.wav
+C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\SharpDX.XAudio2.dll
+C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\SharpDX.XAudio2.pdb
+C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\SharpDX.XAudio2.xml
+C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\bin\Debug\GameObjects\Audio\GameWon.wav
+C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\bin\Debug\GameObjects\Audio\NaxodKartina.mp3
+C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\bin\Debug\GameObjects\Audio\NaxodKartina.wav
+C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\bin\Debug\GameObjects\Audio\PencilSound.mp3
+C:\Projects\PGIZ\CourseWork\PGIZ_CourseWork\bin\Debug\bin\Debug\GameObjects\Audio\PencilSound.wav

@@ -17,6 +17,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 using SharpDX.Mathematics.Interop;
 using Lab01.Scripts;
 using Lab01.Scripts.Game;
+using SharpDX.XAudio2;
 
 namespace Lab01.App.Scripts.Game
 {
@@ -469,6 +470,8 @@ namespace Lab01.App.Scripts.Game
           );
         }
 
+        private XAudio2 xaudio2;
+
         private void DrawUIText()
         {
             _directX3DGraphics.D2DRenderTarget.DrawTextLayout(new Vector2(0, 0), _helpTextLayout, new SolidColorBrush(_directX3DGraphics.D2DRenderTarget, Color.White));
@@ -484,12 +487,19 @@ namespace Lab01.App.Scripts.Game
             _directX3DGraphics.D2DRenderTarget.DrawTextLayout(new Vector2(250, 450), _kartina9TextField, new SolidColorBrush(_directX3DGraphics.D2DRenderTarget, _currentColorPicture9));
             _directX3DGraphics.D2DRenderTarget.DrawTextLayout(new Vector2(500, 450), _kartina10TextField, new SolidColorBrush(_directX3DGraphics.D2DRenderTarget, _currentColorPicture10));
         }
+
+
         private void InvokeInitializers()
         {
             InitializeGame();
             GameMaterials.InitializeMaterials();
             GameLights.CreateLights();
 
+            xaudio2 = new XAudio2();
+
+            var masteringVoice = new MasteringVoice(xaudio2);
+
+            GameSound.PLaySoundFileLoop(xaudio2, "text", "GameObjects/Audio/ElevatorMusic.wav");
             InitializeTextures(_loader);
             InitializeGameObjects(_loader);
             InitializeColliders();
@@ -647,7 +657,8 @@ namespace Lab01.App.Scripts.Game
             _plot = loader.MakePlot(new Vector4(0.0f, 0.0f, 0.0f, 1.0f), 0.0f, 0.0f, 0.0f, _plotSize.X, _plotSize.Y, 0f, ref _plotCollider);
 
             _player = LoadObjectWithCollider(loader, "player.obj", new Vector4(0f, 0f, 0f, 1f), ref _playerTexture, out _playerCollider);
-
+            _playerCollider.Minimum = new Vector3(-0.25f, 0, -0.25f);
+            _playerCollider.Maximum = new Vector3(0.25f, 2f, 0.25f);
             _cylinder = LoadObject(loader, "cylinder.obj", new Vector4(-18f, 2.0f, -1.0f, 1.0f), ref _cylinderTexture);
             _sixGrannik = LoadObjectWithCollider(loader, "6grannik.obj", new Vector4(10.0f, 2.0f, 18f, 1.0f), ref _sixGrannikTexture, out _sixGrannikCollider);
 
@@ -860,26 +871,29 @@ namespace Lab01.App.Scripts.Game
 
             _cameraRay.Position += playerMovement;
         }
-
+        private bool isWon = false;
         private void CheckPlayerInteracts()
         {
             if (_cameraRay.Intersects(ref _letter1Collider) && _dxInput.IsKeyPressed(Key.E))
             {
                 Debug.WriteLine("PISMO 1!!! ");
-                textFromLettersField = "В гардеробной можно найти трех накаченный мужичков!";
+                textFromLettersField = "В гардеробной можно найти трех накаченных мужичков!";
                 _textDisplayTime = 0f; // обнуляем таймер при обновлении текста
+                GameSound.PLaySoundFileOnce(xaudio2, "text", "GameObjects/Audio/PencilSound.wav");
             }
             if (_cameraRay.Intersects(ref _letter2Collider) && _dxInput.IsKeyPressed(Key.E))
             {
                 Debug.WriteLine("PISMO 2!!! ");
                 textFromLettersField = "В комнате которую еще не обустроили должны были остаться картины!";
                 _textDisplayTime = 0f; // обнуляем таймер при обновлении текста
+                GameSound.PLaySoundFileOnce(xaudio2, "text", "GameObjects/Audio/PencilSound.wav");
             }
             if (_cameraRay.Intersects(ref _letter3Collider) && _dxInput.IsKeyPressed(Key.E))
             {
                 Debug.WriteLine("PISMO 3!!! ");
                 textFromLettersField = "В зале были пустые стены, поэтому их решили украсить картинами!";
                 _textDisplayTime = 0f; // обнуляем таймер при обновлении текста
+                GameSound.PLaySoundFileOnce(xaudio2, "text", "GameObjects/Audio/PencilSound.wav");
             }
             if (_cameraRay.Intersects(ref _letter4Collider) && _dxInput.IsKeyPressed(Key.E))
             {
@@ -887,58 +901,76 @@ namespace Lab01.App.Scripts.Game
                 textFromLettersField = "С дивана хорошо долнжо быть видно картину на которой чуствуется страх!";
                 //_currentColor = Color.Green; // Изменяем цвет текста на зеленый
                 _textDisplayTime = 0f; // обнуляем таймер при обновлении текста
+                GameSound.PLaySoundFileOnce(xaudio2, "text", "GameObjects/Audio/PencilSound.wav");
             }
             if (_cameraRay.Intersects(ref _letter5Collider) && _dxInput.IsKeyPressed(Key.E))
             {
                 Debug.WriteLine("PISMO 5!!! ");
                 textFromLettersField = "На кухне возле холодильника спряталась сладкоежка!";
                 _textDisplayTime = 0f; // обнуляем таймер при обновлении текста
+                GameSound.PLaySoundFileOnce(xaudio2, "text", "GameObjects/Audio/PencilSound.wav");
             }
             if (_currentColorPicture1 == Color.Green && _currentColorPicture2 == Color.Green && _currentColorPicture3 == Color.Green && _currentColorPicture4 == Color.Green && _currentColorPicture5 == Color.Green &&
                 _currentColorPicture6 == Color.Green && _currentColorPicture7 == Color.Green && _currentColorPicture8 == Color.Green && _currentColorPicture9 == Color.Green && _currentColorPicture10 == Color.Green)
             {
-                textFromLettersField = "Ура вы нашли все картины!";
+                if (!isWon)
+                {
+                    textFromLettersField = "Ура вы нашли все картины!";
+                    GameSound.PLaySoundFileOnce(xaudio2, "text", "GameObjects/Audio/GameWon.wav");
+                    isWon = true;
+                }
             }
 
             if (_cameraRay.Intersects(ref _kartina1Collider) && _dxInput.IsKeyPressed(Key.E))
             {
                 _currentColorPicture1 = Color.Green;
+                GameSound.PLaySoundFileOnce(xaudio2, "text", "GameObjects/Audio/NaxodKartina.wav");
+
             }
             if (_cameraRay.Intersects(ref _kartina2Collider) && _dxInput.IsKeyPressed(Key.E))
             {
                 _currentColorPicture2 = Color.Green;
+                GameSound.PLaySoundFileOnce(xaudio2, "text", "GameObjects/Audio/NaxodKartina.wav");
             }
             if (_cameraRay.Intersects(ref _kartina3Collider) && _dxInput.IsKeyPressed(Key.E))
             {
                 _currentColorPicture3 = Color.Green;
+                GameSound.PLaySoundFileOnce(xaudio2, "text", "GameObjects/Audio/NaxodKartina.wav");
             }
             if (_cameraRay.Intersects(ref _kartina4Collider) && _dxInput.IsKeyPressed(Key.E))
             {
                 _currentColorPicture4 = Color.Green;
+                GameSound.PLaySoundFileOnce(xaudio2, "text", "GameObjects/Audio/NaxodKartina.wav");
             }
             if (_cameraRay.Intersects(ref _kartina5Collider) && _dxInput.IsKeyPressed(Key.E))
             {
                 _currentColorPicture5 = Color.Green;
+                GameSound.PLaySoundFileOnce(xaudio2, "text", "GameObjects/Audio/NaxodKartina.wav");
             }
             if (_cameraRay.Intersects(ref _kartina6Collider) && _dxInput.IsKeyPressed(Key.E))
             {
                 _currentColorPicture6 = Color.Green;
+                GameSound.PLaySoundFileOnce(xaudio2, "text", "GameObjects/Audio/NaxodKartina.wav");
             }
             if (_cameraRay.Intersects(ref _kartina7Collider) && _dxInput.IsKeyPressed(Key.E))
             {
                 _currentColorPicture7 = Color.Green;
+                GameSound.PLaySoundFileOnce(xaudio2, "text", "GameObjects/Audio/NaxodKartina.wav");
             }
             if (_cameraRay.Intersects(ref _kartina8Collider) && _dxInput.IsKeyPressed(Key.E))
             {
                 _currentColorPicture8 = Color.Green;
+                GameSound.PLaySoundFileOnce(xaudio2, "text", "GameObjects/Audio/NaxodKartina.wav");
             }
             if (_cameraRay.Intersects(ref _kartina9Collider) && _dxInput.IsKeyPressed(Key.E))
             {
                 _currentColorPicture9 = Color.Green;
+                GameSound.PLaySoundFileOnce(xaudio2, "text", "GameObjects/Audio/NaxodKartina.wav");
             }
             if (_cameraRay.Intersects(ref _kartina10Collider) && _dxInput.IsKeyPressed(Key.E))
             {
                 _currentColorPicture10 = Color.Green;
+                GameSound.PLaySoundFileOnce(xaudio2, "text", "GameObjects/Audio/NaxodKartina.wav");
             }
         }
 
